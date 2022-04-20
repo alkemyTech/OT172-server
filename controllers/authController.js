@@ -5,7 +5,7 @@ module.exports = {
   async login(req, res) {
 
     try {
-      const { email, password } = req.body.data;
+      const { email, password } = req.body;
       console.log(`User [${email}] is trying to login`);
       const user = await User.findOne({ where: { email: email } });
 

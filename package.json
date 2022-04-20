@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "db-reset": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -15,6 +16,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "joi": "^17.6.0",
     "morgan": "~1.9.1",
     "mysql2": "^2.2.3",
     "sequelize": "^6.3.5"
