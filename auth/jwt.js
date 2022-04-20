@@ -24,12 +24,14 @@ const createAccessToken = (userId, userEmail, userName) => {
 }
 
 const verifyToken = (req, res, next) => {
-  const { accessToken } = req.query
+  const accessToken  = req.headers['x-access-token']
 
   if (!accessToken) return res.status(403).send('Token is missing')
 
   try {
-    jwt.verify(accessToken, ACCESS_TOKEN_SECRET)
+    const user = jwt.verify(accessToken, ACCESS_TOKEN_SECRET)
+    console.log(user._id);
+    // req.user = 
     next()
   } catch (error) {
     return res.status(401).send('Token is invalid')
