@@ -1,0 +1,12 @@
+@host = {{$dotenv SERVER_HOST}}
+
+@contentType = application/json
+
+
+### login
+POST {{host}}auth/login
+Content-Type: {{contentType}}
+ 
+{
+  "email":"test@test.com",  "password":"123456"
+}
