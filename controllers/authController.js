@@ -1,5 +1,7 @@
-const bcrypt = require('bcrypt')
-const { User } = require('../models')
+const bcrypt = require('bcrypt');
+const { User } = require('../models');
+const {createAccessToken} = require('../auth/jwt')
+
 
 const hashPassword = require('../auth/hashPassword')
 
@@ -18,10 +20,16 @@ module.exports = {
         if (passwordsMatch) {
           const { password, ...sentData } = user.dataValues
 
-          // Future to do: token create ?
+          // Create Token
+          const token = createAccessToken({
+            userId: user.id,
+            email: user.email,
+            name:user.lastName
+          });
 
           console.log(`User [${email}] login was successful`)
           res.status(200).json({
+            token,
             user: sentData
           })
         } else {
