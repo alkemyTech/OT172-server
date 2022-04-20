@@ -2,7 +2,6 @@ require('dotenv').config
 const jwt = require('jsonwebtoken')
 const Joi = require('joi')
 
-const { createUserSchema } = require('./schemas')
 const TOKEN_SECRET = process.env.TOKEN_SECRET
 
 const authValidation = Joi.object({
@@ -27,18 +26,6 @@ const validateToken = (req, res, next) => {
   }
 }
 
-const validateRegister = (req, res, next) => {
-  const validation = createUserSchema.validate(req.body)
-
-  if (validation.error) {
-    console.log(`Authentication have errors: [${validation.error.message}]`)
-    res.status(401).send(validation.error.message)
-  } else {
-    console.log('Successful data authentication')
-    next()
-  }
-}
-
 const validateLogin = (req, res, next) => {
   const result = authValidation.validate(req.body)
   if (!result.error) {
@@ -49,4 +36,19 @@ const validateLogin = (req, res, next) => {
   }
 }
 
-module.exports = { validateToken, validateRegister, validateLogin }
+const validateData = schema => {
+  return (req, res, next) => {
+    const validation = schema.validate(req.body)
+
+    validation.error
+      ? (console.log(`Autentication have errors: ${validation.error.message}`),
+        res.status(401).send(validation.error.message))
+      : (console.log('Successful data authentication'), next())
+  }
+}
+
+module.exports = {
+  validateToken,
+  validateLogin,
+  validateData
+}

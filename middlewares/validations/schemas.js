@@ -22,4 +22,13 @@ const createUserSchema = Joi.object({
     .required()
 })
 
-module.exports = { createUserSchema }
+const createCategorySchema = Joi.object({
+  name: Joi.string()
+    .alphanum()
+    .min(3)
+    .max(50)
+    .required(),
+  description: Joi.string().max(152)
+})
+
+module.exports = { createUserSchema, createCategorySchema }
