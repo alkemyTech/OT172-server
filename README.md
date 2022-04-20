@@ -26,4 +26,3 @@ npx sequelize-cli db:seed:all
 ``` bash
 npm start
 ```
-Creacion de rama dev
