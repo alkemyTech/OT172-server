@@ -1,12 +1,22 @@
 @host = {{$dotenv SERVER_HOST}}
-
+@token =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsidXNlcklkIjo2LCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJuYW1lIjoiRGVtbyJ9LCJpYXQiOjE2NTA0NTUzNTUsImV4cCI6MTY1MDQ1NTk1OX0.gFMEvxAsV49ZKP5Igs9xEYJBTgsLqVEn8F4k9T3GQBA
 @contentType = application/json
 
 
-### login
+### auth login
 POST {{host}}auth/login
 Content-Type: {{contentType}}
  
 {
   "email":"test@test.com",  "password":"123456"
+}
+
+### user edit
+PUT {{host}}users/6
+x-access-token:{{token}}
+Content-Type: {{contentType}}
+ 
+{
+  "lastName":"Last name edited",
+  "roleId": 1
 }
