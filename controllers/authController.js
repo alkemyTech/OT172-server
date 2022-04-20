@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
-const {createAccessToken} = require('../auth/jwt')
+const createAccessToken = require('../auth/jwt')
 
 
 const hashPassword = require('../auth/hashPassword')
