@@ -2,21 +2,26 @@ const { User } = require('../models');
 
 module.exports = {
 
-  
  async updateUser (req, res) {
-   console.log('### 1',req.user);
-   console.log('### 2',req.body);
     try {
       const user = await User.findByPk(req.params.id);
-      // console.log('### 1', user);
       if (user) {
-        
+        Object.entries(req.body).forEach((item) => {
+          const [key, value] = item;
+          // user only update these fields
+          if (['firstName', 'lastName', 'email', 'image'].includes(key)) {
+            user[key]=value
+          }
+        })        
 
-        // Si hay user chequear admin y editar
-        console.log(user);
-        // await user.save();
+        console.log('el id',req.user.id);
+        if (req.user?.roleId === 1 && req.body.roleId) {
+          user.roleId = req.body.roleId; // user admin and self only can edit role.
+        }
 
-        const { password, ...sentValues } = user.dataValues; // exclude password
+        await user.save();
+
+        const { password, ...sentValues } = user.dataValues;
         res.status(200).json(sentValues);
       } else {
         res.status(404).json({ error: 'User not found' })
