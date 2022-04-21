@@ -1,20 +1,21 @@
-const { Activity } = require("../models");
+const { Activities } = require("../models");
 
 const createActivity = async (req, res) => {
   try {
-    const activity = Activity.build(req.body);
-
-    const create = activity.save();
-
+    const { name, image, content } = req.body;
+    const create = await Activities.create({
+      name,
+      image,
+      content,
+    });
     if (!create) {
       return res.status(402).json({
-        ok: false,
+        created: false,
         msg: "Something got wrong while creating the activity.",
       });
     }
-
     res.status(200).json({
-      ok: true,
+      created: true,
       msg: "Activity created successfully!",
     });
   } catch (err) {
@@ -25,10 +26,10 @@ const createActivity = async (req, res) => {
 const updateActivity = async (req, res) => {
   let id = req.params.id;
   try {
-    const activity = await Activity.update(req.body, { where: { id: id } });
-    res.status(200).send(activity);
+    const activity = await Activities.update(req.body, { where: { id: id } });
+    res.status(200).send({ id: activity, message: "updated" });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
