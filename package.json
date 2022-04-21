@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "db-reset": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all"
+    "db-drop-create-tables": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
+    "db-empty-seed-tables": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
+    "db-reset":"npm run db-drop-create-tables && npm run db-empty-seed-tables"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -13,7 +15,6 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "joi": "^17.6.0",

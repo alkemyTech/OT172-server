@@ -1,7 +1,7 @@
 require('dotenv').config
 const jwt = require('jsonwebtoken')
 const Joi = require('joi')
-const { User } = require('../../models');
+const { User } = require('../models');
 
 const TOKEN_SECRET = process.env.TOKEN_SECRET
 
