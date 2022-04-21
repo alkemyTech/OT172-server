@@ -25,6 +25,11 @@
     "standard": "^17.0.0"
   },
   "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.15",
     "sequelize-cli": "^6.2.0"
   }
