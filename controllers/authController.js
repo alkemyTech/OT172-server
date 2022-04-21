@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
-const {createAccessToken} = require('../auth/jwt')
+const createAccessToken = require('../auth/jwt')
 
 
 const hashPassword = require('../auth/hashPassword')
@@ -23,8 +23,7 @@ module.exports = {
           // Create Token
           const token = createAccessToken({
             userId: user.id,
-            email: user.email,
-            name:user.lastName
+            email: user.email
           });
 
           console.log(`User [${email}] login was successful`)
