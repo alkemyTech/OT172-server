@@ -7,7 +7,7 @@
     "start": "node ./bin/www",
     "db-drop-create-tables": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
     "db-empty-seed-tables": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
-    "db-reset":"npm run db-drop-create-tables && npm run db-empty-seed-tables"
+    "db-reset": "npm run db-drop-create-tables && npm run db-empty-seed-tables"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -25,6 +25,11 @@
     "standard": "^17.0.0"
   },
   "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.15",
     "sequelize-cli": "^6.2.0"
   }
