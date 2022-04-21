@@ -7,7 +7,7 @@
     "start": "node ./bin/www",
     "db-drop-create-tables": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
     "db-empty-seed-tables": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
-    "db-reset":"npm run db-drop-create-tables && npm run db-empty-seed-tables"
+    "db-reset": "npm run db-drop-create-tables && npm run db-empty-seed-tables"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
