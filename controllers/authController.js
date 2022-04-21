@@ -23,8 +23,7 @@ module.exports = {
           // Create Token
           const token = createAccessToken({
             userId: user.id,
-            email: user.email,
-            name:user.lastName
+            email: user.email
           });
 
           console.log(`User [${email}] login was successful`)

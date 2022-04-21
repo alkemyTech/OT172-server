@@ -1,7 +1,7 @@
 const { User } = require('../models');
+const createAccessToken = require('../auth/jwt')
 
 module.exports = {
-
  async updateUser (req, res) {
     try {
       const user = await User.findByPk(req.params.id);
@@ -14,15 +14,23 @@ module.exports = {
           }
         })        
 
-        console.log('el id',req.user.id);
         if (req.user?.roleId === 1 && req.body.roleId) {
           user.roleId = req.body.roleId; // user admin and self only can edit role.
         }
 
         await user.save();
-
         const { password, ...sentValues } = user.dataValues;
-        res.status(200).json(sentValues);
+
+        // Create Token
+        const token = createAccessToken({
+          userId: sentValues.id,
+          email: sentValues.email
+        });
+        console.log(`User [${sentValues.email}] token was reset successful`)
+        res.status(200).json({
+          token,
+          user: sentValues
+        })
       } else {
         res.status(404).json({ error: 'User not found' })
       }
