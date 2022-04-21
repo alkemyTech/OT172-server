@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {validateToken} = require('../middlewares/validations/auth')
+const {validateToken} = require('../middlewares/auth')
 const { isAdminOrUserSelf } = require('../middlewares/checkRoles')
 const { updateUser } = require('../controllers/usersController')
 /* GET users listing. */

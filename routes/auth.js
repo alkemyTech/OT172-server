@@ -5,7 +5,7 @@ const authController = require('../controllers/authController')
 const {
   validateLogin,
   validateData
-} = require('../middlewares/validations/auth')
+} = require('../middlewares/auth')
 const { createUserSchema } = require('../middlewares/validations/schemas')
 
 router.post(
