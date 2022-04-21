@@ -1,3 +1,4 @@
+
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -10,6 +11,7 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const categoriesRouter = require('./routes/categories')
+const testimonyRouter = require("./routes/testimony");
 
 const app = express()
 app.use(cors())
@@ -28,6 +30,8 @@ app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 app.use('/categories', categoriesRouter)
+app.use('/testimonials', testimonyRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -37,6 +41,7 @@ app.use(function (req, res, next) {
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
+
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
