@@ -26,3 +26,12 @@ npx sequelize-cli db:seed:all
 ``` bash
 npm start
 ```
+
+## Routes 
+
+AUTH
+
+Register 
+route = '/auth/register'. 
+body = {firstName, lastName, email, password(at least one uppercase, one lowercase, one number, in a range of 8 to 20)}
+
