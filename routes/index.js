@@ -10,8 +10,8 @@ const testimonyRouter = require("./testimony");
 router.use('/auth', authRouter);
 router.use('/users', usersAuth);
 router.use('/categories', categoriesRouter)
-app.use('/testimonials', testimonyRouter);
-app.use('/activities', activitiesRouter);
+router.use('/testimonials', testimonyRouter);
+router.use('/activities', activitiesRouter);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {

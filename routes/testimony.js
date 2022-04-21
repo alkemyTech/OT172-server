@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const {
   validatedTestimony,
-} = require("../middlewares/validations/TestimonyValidations");
+} = require("../middlewares/validations/testimonyValidations");
 const postTestimonyController = require("../controllers/testimonyController");
 
 router.get("/", function (req, res, next) {
