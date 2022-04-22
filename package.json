@@ -22,7 +22,8 @@
     "morgan": "~1.9.1",
     "mysql2": "^2.2.3",
     "sequelize": "^6.3.5",
-    "standard": "^17.0.0"
+    "standard": "^17.0.0",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "eslint": "^8.13.0",
