@@ -1,0 +1,8 @@
+@host = {{$dotenv SERVER_HOST}}
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsidXNlcklkIjoxLCJlbWFpbCI6InRlc3RAdGVzdC5jb20ifSwiaWF0IjoxNjUwNjQ3NjEyLCJleHAiOjE2NTA2NDgyMTZ9.NsSRtI51BhUXkPqyJzCOIIQ79PzE4sIZ4okBBe7yfCI
+
+@contentType = application/json
+
+### Get all members
+GET {{host}}members
+x-access-token: {{token}}
