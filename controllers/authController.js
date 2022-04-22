@@ -54,7 +54,7 @@ module.exports = {
         encryptedPassword
       )
 
-      if (user[0]['_options'].isNewRecord) {
+      if (user[0]._options.isNewRecord) {
         console.log(`User ${email} successfully created`)
         res.json({ ok: true, msg: 'User successfully created' })
       } else {
