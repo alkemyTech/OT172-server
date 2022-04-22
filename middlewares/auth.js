@@ -1,4 +1,4 @@
-require('dotenv').config
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const Joi = require('joi')
 const { User } = require('../models')
@@ -17,7 +17,7 @@ const authValidation = Joi.object({
 const validateToken = async (req, res, next) => {
   const token = req.headers['x-access-token']
 
-  if (!token) res.status(403).send('Token is missing')
+  if (!token) return res.status(403).send('Token is missing')
 
   try {
     const decodeToken = jwt.verify(token, TOKEN_SECRET)
