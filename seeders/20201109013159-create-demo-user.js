@@ -1,5 +1,5 @@
-'use strict';
-const bcrypt = require('bcrypt');
+'use strict'
+const bcrypt = require('bcrypt')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -10,9 +10,9 @@ module.exports = {
       password: `${bcrypt.hashSync('123456', 10)}`,
       roleId: 1,
       image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
-      createdAt: new Date,
-      updatedAt: new Date
-    }], {});
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }], {})
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -22,6 +22,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('Users', null, {})
   }
-};
+}
