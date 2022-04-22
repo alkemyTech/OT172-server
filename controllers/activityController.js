@@ -1,3 +1,4 @@
+
 const { Activities } = require("../models");
 
 const createActivity = async (req, res) => {
@@ -37,3 +38,4 @@ module.exports = {
   createActivity,
   updateActivity,
 };
+
