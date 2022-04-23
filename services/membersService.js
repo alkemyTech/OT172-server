@@ -1,3 +1,4 @@
+const createError = require('http-errors')
 const { Members } = require('../models')
 
 module.exports = {
@@ -13,5 +14,17 @@ module.exports = {
       updatedAt: new Date()
     })
     return member
+  },
+  async updateMember (id, { name }) {
+    const member = await Members.findByPk(id)
+    if (!member) throw createError(404, 'Member not found')
+    await Members.update({
+      name,
+      updatedAt: new Date()
+    }, {
+      where: {
+        id
+      }
+    })
   }
 }
