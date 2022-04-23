@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 const {
   Model
-} = require('sequelize');
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Entries extends Model {
     /**
@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-        Entries.belongsTo(models.Categories, {as: 'categories'});
+    static associate (models) {
+      Entries.belongsTo(models.Categories, { as: 'categories' })
     }
   };
-//   Criterios de aceptación: Las entradas serán el contenido publicado en la sección "Novedades" del sitio.
-//   Nombre de tabla: entries. 
-//   Campos: name, content, image, categoryId, type (una entrada podrá ser event, news, etc), deletedAt (utilizado para softDelete)
+  //   Criterios de aceptación: Las entradas serán el contenido publicado en la sección "Novedades" del sitio.
+  //   Nombre de tabla: entries.
+  //   Campos: name, content, image, categoryId, type (una entrada podrá ser event, news, etc), deletedAt (utilizado para softDelete)
   Entries.init({
     name: DataTypes.STRING,
     content: DataTypes.STRING,
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'Entries',
-  });
-  return Entries;
-};
+    modelName: 'Entries'
+  })
+  return Entries
+}

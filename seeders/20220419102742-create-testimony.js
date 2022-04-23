@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -20,7 +20,8 @@ module.exports = {
           content: 'Contenido Segundo Testimonio',
           createdAt: new Date(),
           updatedAt: new Date()
-        },{
+        },
+        {
           name: 'Tercer Testimonio',
           image:
             'https://www.alkemy.org/static/media/Enerminds.333784bf.svg',
@@ -51,7 +52,8 @@ module.exports = {
           content: 'Contenido Sexto Testimonio',
           createdAt: new Date(),
           updatedAt: new Date()
-        },{
+        },
+        {
           name: 'Septimo Testimonio',
           image:
             'https://www.alkemy.org/static/media/artekium.a5a3aa05.svg',
@@ -67,10 +69,10 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         }
-        
+
       ],
       {}
-    );
+    )
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -81,4 +83,4 @@ module.exports = {
      * await queryInterface.bulkDelete('Testimonials', null, {});
      */
   }
-};
+}

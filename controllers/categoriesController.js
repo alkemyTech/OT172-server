@@ -7,7 +7,7 @@ module.exports = {
 
       const category = await createCategory(name, description)
 
-      if (category[0]['_options'].isNewRecord) {
+      if (category[0]._options.isNewRecord) {
         console.log(`Category ${name} successfully created`)
         res.json({ ok: true, msg: 'Category successfully created' })
       } else {

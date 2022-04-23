@@ -31,4 +31,20 @@ const createCategorySchema = Joi.object({
   description: Joi.string().max(152)
 })
 
-module.exports = { createUserSchema, createCategorySchema }
+const createNewsSchema = Joi.object({
+  name : Joi.string()
+      .alphanum()
+      .min(3)
+      .max(50)
+      .required(),
+      
+  content : Joi.string()
+    .alphanum()
+    .min(5)
+    .required(),
+  image : Joi.optional(),
+  type: "news",
+  categoryId: Joi.number().integer()
+})
+
+module.exports = { createUserSchema, createCategorySchema, createNewsSchema }

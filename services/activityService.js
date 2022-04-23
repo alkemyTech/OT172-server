@@ -1,11 +1,14 @@
-const { Activity } = require('../models')
+const { Activities } = require('../models')
 
 module.exports = {
-  async builCategory (body) {
-    const activity = Activity.build(body)
-
-    const create = activity.save()
-
-    return create
+  async postActivity (name, image, content) {
+    await Activities.create({
+      name,
+      image,
+      content
+    })
+  },
+  async putActivity (id, req) {
+    await Activities.update(req.body, { where: { id } })
   }
 }
