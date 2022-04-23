@@ -46,6 +46,6 @@ app.use('/', indexRouter)
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(docs, optionsSwaggerUI))
 
 app.use(errorLog)
-app.use(errorHandler)
+app.use(() => errorHandler)
 
 module.exports = app
