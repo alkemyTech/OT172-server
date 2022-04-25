@@ -17,10 +17,7 @@ module.exports = {
         if (passwordsMatch) {
           const { password, ...sentData } = user.dataValues
 
-          const token = createAccessToken({
-            userId: user.id,
-            email: user.email
-          })
+          const token = createAccessToken(user.id, user.email)
 
           console.log(`User [${email}] login was successful`)
           res.status(200).json({

@@ -1,4 +1,14 @@
-const { postOrganization, putOrganization } = require('../services/organizationServices')
+const { postOrganization, putOrganization, findOrganization } = require('../services/organizationServices')
+
+const getOrganization = async (req, res) => {
+  const id = req.params.id
+  try {
+    const organization = await findOrganization(id)
+    res.status(200).send(organization)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
 
 const createOrganization = async (req, res) => {
   try {
@@ -24,6 +34,7 @@ const updateOrganization = async (req, res) => {
 }
 
 module.exports = {
+  getOrganization,
   createOrganization,
   updateOrganization
 }

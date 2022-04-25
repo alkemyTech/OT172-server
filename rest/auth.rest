@@ -1,5 +1,5 @@
 @host = {{$dotenv SERVER_HOST}}
-@token =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOnsidXNlcklkIjo0LCJlbWFpbCI6InRlc3RAdGVzdC5jb20ifSwiaWF0IjoxNjUwNTUzNzYwLCJleHAiOjE2NTA1NTQzNjR9.3QwIpom_C0eA3R3-vKcuP15MBX6g9FupKrOvr_WDXTE
+@token =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwOTE0OTA4LCJleHAiOjE2NTA5MTU1MTJ9.lR0hGopX2xo2pRHW9wrrZhrWYM6g8lWsvTMdeykvhqg
 @contentType = application/json
 
 
@@ -16,27 +16,23 @@ POST {{host}}auth/register
 Content-Type: {{contentType}}
  
 {
-  "firstName": "Usuario",
+  "firstName": "UsuarioAgregado",
   "lastName": "UsuarioApellido",
-  "email":"usuario01@test.com",  "password":"12345678"
+  "email":"usuarioagregado@test.com",  "password":"Aa.12345678"
 }
 
+### user obtener todos
+GET {{host}}users
+x-access-token:{{token}}
+Content-Type: {{contentType}}
+
 ### user edit
-PUT {{host}}users/6
+PUT {{host}}users/2
 x-access-token:{{token}}
 Content-Type: {{contentType}}
  
 {
-  "lastName":"www name edited",
+  "lastName":"Usuarioedited",
   "firstName":"First name edited",
-  "roleId": 3
-}
-
-### Categories
-POST {{host}}categories
-Content-Type: {{contentType}}
- 
-{
-  "name":"CategoriaTest",
-  "description":"Descripcion Categoria 01"
+  "roleId": 2
 }

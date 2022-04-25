@@ -5,6 +5,7 @@ const {
 } = require('../middlewares/validations/organization')
 const postOrganizationController = require('../controllers/organizationController')
 
+router.get('/:id', postOrganizationController.getOrganization)
 router.post('/', [validatedOrganization], postOrganizationController.createOrganization)
 router.put('/:id', [validatedOrganization], postOrganizationController.updateOrganization)
 

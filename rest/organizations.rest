@@ -3,24 +3,24 @@
 
 @contentType = application/json
 
-### Get all members
-GET {{host}}members
+### Get an organization
+GET {{host}}organization/1
 x-access-token: {{token}}
 
-### Create a member
-POST {{host}}members
+### Create an organization
+POST {{host}}organization
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Uno mas "
+  "name": "Organization name"
 }
 
-### Update a member
-PUT {{host}}members/9
+### Update an organization
+PUT {{host}}members/1
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "editado"
+  "name": "Somos Mas !!!!"
 }
