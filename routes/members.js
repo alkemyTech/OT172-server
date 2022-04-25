@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { validateToken } = require('../middlewares/auth')
 const { isAdmin } = require('../middlewares/checkRoles')
-const { validateData } = require('../middlewares/validations')
+const { validateData } = require('../middlewares/auth')
 const { createMemberSchema, updateMemberSchema } = require('../middlewares/validations/members')
 const { getMembers, addMember, updateMember } = require('../controllers/membersController')
 
