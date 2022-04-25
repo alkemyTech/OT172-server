@@ -1,0 +1,13 @@
+@host = {{$dotenv SERVER_HOST}}
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwOTE0OTA4LCJleHAiOjE2NTA5MTU1MTJ9.lR0hGopX2xo2pRHW9wrrZhrWYM6g8lWsvTMdeykvhqg
+
+@contentType = application/json
+
+### Create a categorie
+POST {{host}}categories
+Content-Type: {{contentType}}
+ 
+{
+  "name":"CategoriaTest",
+  "description":"Descripcion Categoria 01"
+}

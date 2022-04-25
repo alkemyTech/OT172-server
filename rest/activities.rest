@@ -1,0 +1,24 @@
+@host = {{$dotenv SERVER_HOST}}
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwOTE0OTA4LCJleHAiOjE2NTA5MTU1MTJ9.lR0hGopX2xo2pRHW9wrrZhrWYM6g8lWsvTMdeykvhqg
+
+@contentType = application/json
+
+### Create an activity
+POST {{host}}activities
+x-access-token: {{token}}
+Content-Type: {{contentType}}
+
+{
+  "name": "Actividad Agregada",
+  "content": "Contenido Agregado"
+}
+
+### Update an activitiy
+PUT {{host}}activities/3
+x-access-token: {{token}}
+Content-Type: {{contentType}}
+
+{
+  "name": "Actividad editada",
+  "content": "Contenido editado"
+}
