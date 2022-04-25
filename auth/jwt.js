@@ -7,7 +7,7 @@ const TOKEN_LIFE = process.env.TOKEN_LIFE
 module.exports = {
   createAccessToken (userId, userEmail) {
     const payload = {
-      _id: userId,
+      id: userId,
       email: userEmail
     }
 

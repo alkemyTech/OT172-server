@@ -21,7 +21,7 @@ const validateToken = async (req, res, next) => {
 
   try {
     const decodeToken = jwt.verify(token, TOKEN_SECRET)
-    const user = await User.findOne({ where: { id: decodeToken._id.userId } })
+    const user = await User.findOne({ where: { id: decodeToken.id } })
 
     const { password, ...sentValues } = user.dataValues
 
