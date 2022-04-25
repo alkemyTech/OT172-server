@@ -1,0 +1,8 @@
+@host = {{$dotenv SERVER_HOST}}
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwODU2OTkzLCJleHAiOjE2NTA4NTc1OTd9.kfLkXdu1AmXJtwNRFXTtjbklPbxf9NjPSvBlF-uKlfo
+
+@contentType = application/json
+
+### Get all news
+GET {{host}}news
+x-access-token: {{token}}
