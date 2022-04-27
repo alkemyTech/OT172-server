@@ -1,5 +1,5 @@
 @host = {{$dotenv SERVER_HOST}}
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwOTE1NTU5LCJleHAiOjE2NTA5MTYxNjN9.gRH99aHi9AMs66-KQeEpchDGs-6RMTnQH64janzNh_A
+@token = {{$dotenv TOKEN_TEST}}
 
 @contentType = application/json
 
@@ -13,11 +13,12 @@ x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Uno mas "
+  "name": "Un member",
+  "image": "https://www.fom78.com.ar/img/category/github.svg"
 }
 
 ### Update a member
-PUT {{host}}members/9
+PUT {{host}}members/2
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 

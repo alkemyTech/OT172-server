@@ -1,14 +1,27 @@
 module.exports = {
-  post: {
-    summary: 'Returns a logged user and token',
+  put: {
+    summary: 'Returns an edited user and new token',
     tags: [
       'Users'
     ],
-    description: 'This method is used to login',
+    description: 'This method is used to update an user',
     produces: [
       'application/xml',
       'application/json'
     ],
+    security: [
+      {
+        ApiKeyAuth: []
+      }
+    ],
+    parameters: [{
+      name: 'id',
+      in: 'path',
+      description: 'ID of member to edit',
+      required: true,
+      type: 'integer',
+      format: 'int64'
+    }],
     responses: {
       200: {
         description: 'correct operation',
@@ -46,30 +59,6 @@ module.exports = {
           }
         }
       },
-      401: {
-        description: 'User provided wrong credentials',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              description: 'User provided wrong credentials',
-              default: { ok: false, msg: 'User provided wrong credentials' }
-            }
-          }
-        }
-      },
-      404: {
-        description: 'User does not exist',
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              description: 'Usuario o pass incorrectos',
-              default: { ok: false, msg: 'User does not exist' }
-            }
-          }
-        }
-      },
       500: {
         description: 'Internal error',
         content: {
@@ -87,7 +76,7 @@ module.exports = {
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/Login'
+            $ref: '#/components/schemas/User'
           }
         }
       }
