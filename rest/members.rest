@@ -13,11 +13,12 @@ x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Uno mas "
+  "name": "Un member",
+  "image": "https://www.fom78.com.ar/img/category/github.svg"
 }
 
 ### Update a member
-PUT {{host}}members/9
+PUT {{host}}members/2
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
