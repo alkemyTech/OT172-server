@@ -14,9 +14,8 @@ module.exports = {
   },
   async addMember (req, res, next) {
     try {
-      const { name } = req.body
-      // TODO: replace null with a image
-      const member = await createMember(name, null)
+      const { name, image } = req.body
+      const member = await createMember(name, image)
       res.json({
         ok: true,
         member
