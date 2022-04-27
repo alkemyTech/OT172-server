@@ -12,4 +12,9 @@ router.post(
   categoriesController.create
 )
 
+router.get(
+  '/',
+  categoriesController.getCategories
+)
+
 module.exports = router
