@@ -15,5 +15,9 @@ module.exports = {
   },
   async putCategories (id, req) {
     await Categories.update(req.body, { where: { id } })
+  },
+  async findCategory (id) {
+    const category = await Categories.findByPk(id)
+    return category
   }
 }

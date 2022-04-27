@@ -1,4 +1,4 @@
-const { createTestimony, deleteTestimony} = require('../services/testimonyService')
+const { createTestimony, deleteTestimony } = require('../services/testimonyService')
 
 module.exports = {
   async postTestimony (req, res) {
@@ -12,13 +12,13 @@ module.exports = {
       res.status(500).json({ error: error.message })
     }
   },
-  async deleteTestimony(req,res){
+  async deleteTestimony (req, res) {
     const id = req.params.id
-    try{
+    try {
       await deleteTestimony(id)
-      res.status(200).send({message: 'Testimony deleted'})
-    }catch(error){
-      res.status(500).json({error: error.message})
+      res.status(200).send({ message: 'Testimony deleted' })
+    } catch (error) {
+      res.status(500).json({ error: error.message })
     }
   }
 }

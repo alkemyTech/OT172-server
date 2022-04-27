@@ -7,12 +7,12 @@ module.exports = {
     return testimony
   },
 
-  async findTestimony(id){
-    const testimony= await Testimony.findByPk(id)
-    return testimony;
+  async findTestimony (id) {
+    const testimony = await Testimony.findByPk(id)
+    return testimony
   },
 
-  async deleteTestimony (id){
-    await Testimony.destroy({where: {id}})
+  async deleteTestimony (id) {
+    await Testimony.destroy({ where: { id } })
   }
 }

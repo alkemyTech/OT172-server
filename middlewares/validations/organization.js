@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { findOrganization } = require('../../services/organizationServices')
 
 const validationOrganization = Joi.object({
   name: Joi.string().required(),
@@ -21,4 +22,13 @@ const validatedOrganization = (req, res, next) => {
   }
 }
 
-module.exports = { validatedOrganization }
+const validateExistenceOrganization = async (req, res, next) => {
+  const { id } = req.params
+  if (await findOrganization(id) != null) {
+    next()
+  } else {
+    res.status(404).send({ message: 'The requested resource was not found.' })
+  }
+}
+
+module.exports = { validatedOrganization, validateExistenceOrganization }
