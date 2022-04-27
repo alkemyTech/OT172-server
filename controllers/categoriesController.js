@@ -1,4 +1,4 @@
-const { createCategory } = require('../services/categoriesService')
+const { createCategory, getCategories, putCategories } = require('../services/categoriesService')
 
 module.exports = {
   async create (req, res) {
@@ -18,6 +18,24 @@ module.exports = {
       }
     } catch (error) {
       console.log(`Something wrong. Error [${error.message}]`)
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async getCategories (req, res) {
+    try {
+      const categories = await getCategories()
+      const nameCategories = categories.map(c => c.name)
+      res.status(200).json({ nameCategories })
+    } catch (error) {
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async putCategory (req, res) {
+    const id = req.params.id
+    try {
+      await putCategories(id, req)
+      res.status(200).send({ message: 'updated' })
+    } catch (error) {
       res.status(500).json({ error: error.message })
     }
   }

@@ -12,4 +12,11 @@ router.post(
   categoriesController.create
 )
 
+router.put('/:id', [validateData(createCategorySchema)], categoriesController.putCategory)
+
+router.get(
+  '/',
+  categoriesController.getCategories
+)
+
 module.exports = router
