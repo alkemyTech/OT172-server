@@ -1,10 +1,10 @@
 module.exports = {
   post: {
-    summary: 'Returns a logged user and token',
+    summary: 'Returns a registered user and token',
     tags: [
       'Users'
     ],
-    description: 'This method is used to login',
+    description: 'This method is used to register a new user',
     produces: [
       'application/xml',
       'application/json'
@@ -87,7 +87,7 @@ module.exports = {
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/Login'
+            $ref: '#/components/schemas/Register'
           }
         }
       }

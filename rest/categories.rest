@@ -1,5 +1,5 @@
 @host = {{$dotenv SERVER_HOST}}
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjUwOTE0OTA4LCJleHAiOjE2NTA5MTU1MTJ9.lR0hGopX2xo2pRHW9wrrZhrWYM6g8lWsvTMdeykvhqg
+@token = {{$dotenv TOKEN_TEST}}
 
 @contentType = application/json
 

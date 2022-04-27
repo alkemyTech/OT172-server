@@ -63,19 +63,29 @@ module.exports = {
         ],
         properties: {
           id: {
-            type: 'string',
-            format: 'uuid',
+            type: 'integer',
+            format: 'int64',
             readOnly: true
           },
-          password: {
+          firstName: {
             type: 'string',
-            format: 'password',
-            default: '123456'
+            format: 'string',
+            default: 'UsuarioName'
+          },
+          lastName: {
+            type: 'string',
+            format: 'string',
+            default: 'UsuarioApellido'
           },
           email: {
             type: 'string',
             format: 'email',
             default: 'test@test.com'
+          },
+          image: {
+            type: 'string',
+            format: 'string',
+            default: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png'
           },
           role: {
             type: 'array',
@@ -99,7 +109,7 @@ module.exports = {
         properties: {
           email: {
             type: 'string',
-            default: 'test@test.com'
+            default: 'admin@test.com'
           },
           password: {
             type: 'string',
@@ -108,20 +118,68 @@ module.exports = {
           }
         }
       },
-      UserWithToken: {
-        allOf: [{
-          $ref: '#/components/schemas/User'
-        },
-        {
-          type: 'object',
-          properties: {
-            token: {
-              type: 'string',
-              default: ''
-            }
+      Member: {
+        type: 'object',
+        required: [
+          'name'
+        ],
+        properties: {
+          id: {
+            type: 'integer',
+            format: '$int64',
+            readOnly: true
+          },
+          name: {
+            type: 'string',
+            format: 'string',
+            default: 'Member Name'
+          },
+          image: {
+            type: 'string',
+            format: 'string',
+            default: 'https://www.fom78.com.ar/img/category/github.svg'
+          },
+          createdAt: {
+            type: 'date',
+            format: 'date',
+            readOnly: true,
+            default: Date()
+          },
+          updatedAt: {
+            type: 'date',
+            format: 'date',
+            readOnly: true,
+            default: Date()
           }
         }
-        ]
+      },
+      Register: {
+        type: 'object',
+        required: [
+          'email',
+          'password'
+        ],
+        properties: {
+          firstName: {
+            type: 'string',
+            format: 'string',
+            default: 'UsuarioName'
+          },
+          lastName: {
+            type: 'string',
+            format: 'string',
+            default: 'UsuarioApellido'
+          },
+          email: {
+            type: 'string',
+            default: 'user@test.com'
+          },
+          password: {
+            type: 'string',
+            format: 'password',
+            default: '123456'
+          }
+        }
       }
     }
   }
