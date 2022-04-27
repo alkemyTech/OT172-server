@@ -12,5 +12,8 @@ module.exports = {
   async getCategories () {
     const categories = await Categories.findAll()
     return categories
+  },
+  async putCategories (id, req) {
+    await Categories.update(req.body, { where: { id } })
   }
 }
