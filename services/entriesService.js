@@ -15,6 +15,21 @@ const getAllNews = async () => {
   return newsList
 }
 
+const findNew = async id => {
+  const newFound = await Entries.findOne({
+    where: {
+      id,
+      type: 'news'
+    }
+  })
+  return newFound
+}
+const deleteNew = async (id) => {
+  await Entries.destroy({ where: { id } })
+}
+
 module.exports = {
-  getAllNews
+  getAllNews,
+  deleteNew,
+  findNew
 }
