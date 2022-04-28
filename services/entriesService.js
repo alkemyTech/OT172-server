@@ -19,8 +19,12 @@ const findNew = async id => {
   const newFound = await Entries.findByPk(id)
   return newFound
 }
+const deleteNew = async (id) => {
+  await Entries.destroy({ where: { id } })
+}
 
 module.exports = {
   getAllNews,
+  deleteNew,
   findNew
 }
