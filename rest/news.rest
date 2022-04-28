@@ -3,6 +3,12 @@
 
 @contentType = application/json
 
+@id = {{$dotenv ID_TEST}}
+
 ### Get all news
 GET {{host}}news
+x-access-token: {{token}}
+
+### Delete a news
+DELETE {{host}}news/{{id}}
 x-access-token: {{token}}
