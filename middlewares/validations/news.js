@@ -1,5 +1,5 @@
 // const Joi = require("joi")
-const { findNew } = require('../../services/newsService')
+const { findNew } = require('../../services/entriesService')
 
 const validateNew = schema => {
   return (req, res, next) => {
