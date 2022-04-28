@@ -16,7 +16,12 @@ const getAllNews = async () => {
 }
 
 const findNew = async id => {
-  const newFound = await Entries.findByPk(id)
+  const newFound = await Entries.findOne({
+    where: {
+      id,
+      type: 'news'
+    }
+  })
   return newFound
 }
 const deleteNew = async (id) => {
