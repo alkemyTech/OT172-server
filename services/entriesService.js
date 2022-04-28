@@ -15,6 +15,12 @@ const getAllNews = async () => {
   return newsList
 }
 
+const findNew = async id => {
+  const newFound = await Entries.findByPk(id)
+  return newFound
+}
+
 module.exports = {
-  getAllNews
+  getAllNews,
+  findNew
 }
