@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { validateActivity } = require('../middlewares/validations/activities')
+const { validateActivity, validateExistenceActivity } = require('../middlewares/validations/activities')
 
 const {
   createActivity,
@@ -8,6 +8,6 @@ const {
 } = require('../controllers/activityController')
 
 router.post('/', [validateActivity], createActivity)
-router.put('/:id', [validateActivity], updateActivity)
+router.put('/:id', [validateActivity, validateExistenceActivity], updateActivity)
 
 module.exports = router

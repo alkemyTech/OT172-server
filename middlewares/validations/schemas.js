@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { findCategory } = require('../../services/categoriesService')
 
 const createUserSchema = Joi.object({
   firstName: Joi.string()
@@ -32,19 +33,27 @@ const createCategorySchema = Joi.object({
 })
 
 const createNewsSchema = Joi.object({
-  name : Joi.string()
-      .alphanum()
-      .min(3)
-      .max(50)
-      .required(),
-      
-  content : Joi.string()
+  name: Joi.string()
+    .alphanum()
+    .min(3)
+    .max(50)
+    .required(),
+  content: Joi.string()
     .alphanum()
     .min(5)
     .required(),
-  image : Joi.optional(),
-  type: "news",
+  image: Joi.optional(),
+  type: 'news',
   categoryId: Joi.number().integer()
 })
 
-module.exports = { createUserSchema, createCategorySchema, createNewsSchema }
+const validateExistenceCategory = async (req, res, next) => {
+  const { id } = req.params
+  if (await findCategory(id) != null) {
+    next()
+  } else {
+    res.status(404).send({ message: 'The requested resource was not found.' })
+  }
+}
+
+module.exports = { createUserSchema, createCategorySchema, createNewsSchema, validateExistenceCategory }

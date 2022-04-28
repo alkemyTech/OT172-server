@@ -11,6 +11,6 @@ router.get('/', function (req, res, next) {
 
 router.post('/', [validatedTestimony], postTestimonyController.postTestimony)
 
-router.delete('/:id',[validateExistenceTestimony], postTestimonyController.deleteTestimony)
+router.delete('/:id', [validateExistenceTestimony], postTestimonyController.deleteTestimony)
 
 module.exports = router

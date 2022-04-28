@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { findActivity } = require('../../services/activityService')
 
 const createActivityValidation = Joi.object({
   name: Joi.string().required(),
@@ -15,5 +16,13 @@ const validateActivity = (req, res, next) => {
     res.status(422).json(result.error.message)
   }
 }
+const validateExistenceActivity = async (req, res, next) => {
+  const { id } = req.params
+  if (await findActivity(id) != null) {
+    next()
+  } else {
+    res.status(404).send({ message: 'The requested resource was not found.' })
+  }
+}
 
-module.exports = { validateActivity }
+module.exports = { validateActivity, validateExistenceActivity }
