@@ -10,6 +10,15 @@ const getAllNews = async (req, res, next) => {
   }
 }
 
+const getNewById = async (req, res, next) => {
+  try {
+    const singleNew = await entriesService.findNew(req.params.id)
+    res.status(200).json({ singleNew })
+  } catch (err) {
+    next(err)
+  }
+}
+
 // This Method is used for update entries regardless of their type
 const updateEntrie = async (req, res) => {
   const reqId = req.params.id
@@ -34,5 +43,6 @@ const deleteNew = async (req, res, next) => {
 module.exports = {
   updateEntrie,
   getAllNews,
+  getNewById,
   deleteNew
 }
