@@ -9,7 +9,7 @@ POST {{host}}auth/login
 Content-Type: {{contentType}}
  
 {
-  "email":"test@test.com",  "password":"123456"
+  "email":"admin@test.com",  "password":"123456"
 }
 
 ### auth register
@@ -37,3 +37,7 @@ Content-Type: {{contentType}}
   "firstName":"First name edited",
   "roleId": 2
 }
+
+### Get all users
+GET {{host}}users
+x-access-token: {{token}}
