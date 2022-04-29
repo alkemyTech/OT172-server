@@ -1,9 +1,26 @@
 const { User } = require('../models')
 
-module.exports = {
-  async findUser (id) {
-    const user = await User.findByPk(id)
+const findUser = async (id) => {
+  const user = await User.findByPk(id)
 
-    return user
-  }
+  return user
+}
+
+const findUsers = async () => {
+  const newsList = await User.findAll({
+    attributes: [
+      'firstName',
+      'lastName',
+      'email',
+      'image',
+      'roleId'
+    ]
+  })
+  console.log(newsList)
+  return newsList
+}
+
+module.exports = {
+  findUser,
+  findUsers
 }
