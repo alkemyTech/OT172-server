@@ -6,13 +6,15 @@ module.exports = {
     return user
   },
   async findOrCreateUser (firstName, lastName, email, password) {
+    const roleId = 2
     const user = User.findOrCreate({
       where: { email },
       defaults: {
         firstName,
         lastName,
         email,
-        password
+        password,
+        roleId
       }
     })
     return user
