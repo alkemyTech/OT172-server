@@ -50,10 +50,11 @@ module.exports = {
         email,
         encryptedPassword
       )
+      const token = createAccessToken(user.id, user.email)
 
       if (user[0]._options.isNewRecord) {
         console.log(`User ${email} successfully created`)
-        res.json({ ok: true, msg: 'User successfully created' })
+        res.json({ firstName, lastName, email, encryptedPassword, token })
       } else {
         console.log(`${email} already in use`)
         res

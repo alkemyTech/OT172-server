@@ -8,12 +8,12 @@ module.exports = {
         {
           name: 'Somos Más',
           phone: '1160112988',
-          imageUrl: 'https://unaimagen.png',
+          imageUrl: 'https://assets-dev.alkemy.org/assets/logo.svg',
           address: 'una direccion',
           welcomeText: 'Proyecto ONG - Somos Más',
-          urlFacebook: 'https://es-la.facebook.com',
-          urlLinkedin: 'https://www.linkedin.com/in',
-          urlInstagram: 'https://www.instagram.com',
+          urlFacebook: 'https://es-la.facebook.com/Somos_Mas',
+          urlLinkedin: 'https://www.linkedin.com/in/SomosMas',
+          urlInstagram: 'https://www.instagram.com/SomosMas',
           createdAt: new Date(),
           updatedAt: new Date()
         }
