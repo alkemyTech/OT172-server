@@ -180,6 +180,74 @@ module.exports = {
             default: '123456'
           }
         }
+      },
+      New: {
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string',
+            format: 'string',
+            default: 'New Name'
+          },
+          image: {
+            type: 'string',
+            format: 'string',
+            default: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+          },
+          createdAt: {
+            type: 'date',
+            format: 'date',
+            readOnly: true,
+            default: Date()
+          }
+        }
+      },
+      NewDetail: {
+        type: 'object',
+        properties: {
+          id: {
+            type: 'integer',
+            format: '$int64',
+            readOnly: true
+          },
+          name: {
+            type: 'string',
+            format: 'string',
+            default: 'New Name'
+          },
+          type: {
+            type: 'string',
+            format: 'string',
+            default: 'news'
+          },
+          image: {
+            type: 'string',
+            format: 'string',
+            default: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+          },
+          categoryId: {
+            type: 'integer',
+            format: '$int64',
+            default: 1
+          },
+          createdAt: {
+            type: 'date',
+            format: 'date',
+            readOnly: true,
+            default: Date()
+          },
+          updatedAt: {
+            type: 'date',
+            format: 'date',
+            readOnly: true,
+            default: Date()
+          },
+          deletedAt: {
+            type: 'date',
+            format: 'date',
+            allowNull: true
+          }
+        }
       }
     }
   }

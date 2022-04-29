@@ -5,6 +5,7 @@ const components = require('./components')
 const tags = require('./tags')
 const users = require('./users')
 const members = require('./members')
+const news = require('./news')
 
 module.exports = {
   ...basicInfo,
@@ -13,6 +14,7 @@ module.exports = {
   ...tags,
   paths: {
     ...users,
-    ...members
+    ...members,
+    ...news
   }
 }
