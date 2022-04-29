@@ -12,7 +12,28 @@ module.exports = {
       image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
       createdAt: new Date(),
       updatedAt: new Date()
-    }], {})
+    },
+    {
+      firstName: 'Admin',
+      lastName: 'SoyAdmin',
+      email: 'admin@test.com',
+      password: `${bcrypt.hashSync('123456', 10)}`,
+      roleId: 1,
+      image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      firstName: 'Usuario',
+      lastName: 'uusarioNormal',
+      email: 'user@test.com',
+      password: `${bcrypt.hashSync('123456', 10)}`,
+      roleId: 2,
+      image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+    ], {})
   },
 
   down: async (queryInterface, Sequelize) => {
