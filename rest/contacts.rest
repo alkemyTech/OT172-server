@@ -1,0 +1,10 @@
+@host = {{$dotenv SERVER_HOST}}
+
+@token = {{$dotenv TOKEN_TEST}}
+
+@contentType = application/json
+
+
+### 
+GET {{host}}contacts
+x-access-token: {{token}}
