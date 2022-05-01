@@ -1,0 +1,13 @@
+@host = {{$dotenv SERVER_HOST}}
+@token = {{$dotenv TOKEN_TEST}}
+
+@contentType = application/json
+
+
+### subir una imagen
+POST {{host}}images
+Content-Type: {{contentType}}
+ 
+{
+  "email":"admin@test.com",  "password":"123456"
+}
