@@ -28,8 +28,16 @@ const deleteNew = async (id) => {
   await Entries.destroy({ where: { id } })
 }
 
+const createNew = async (newToCreate) => {
+  await Entries.create({
+    ...newToCreate,
+    type: 'news'
+  })
+}
+
 module.exports = {
   getAllNews,
   deleteNew,
-  findNew
+  findNew,
+  createNew
 }
