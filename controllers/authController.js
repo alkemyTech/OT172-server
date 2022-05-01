@@ -52,9 +52,12 @@ module.exports = {
       )
       const token = createAccessToken(user.id, user.email)
 
+      const createdUser = await findUser(email)
+      const roleId = createdUser.roleId
+
       if (user[0]._options.isNewRecord) {
         console.log(`User ${email} successfully created`)
-        res.json({ firstName, lastName, email, encryptedPassword, token })
+        res.json({ firstName, lastName, email, encryptedPassword, token, roleId })
       } else {
         console.log(`${email} already in use`)
         res
