@@ -8,6 +8,7 @@ const testimonyRouter = require('./testimony')
 const membersRouter = require('./members')
 const organizationRouter = require('./organizations')
 const newsRouter = require('./news')
+const contactRouter = require('./contacts')
 
 router.use('/auth', authRouter)
 router.use('/users', usersAuth)
@@ -17,5 +18,6 @@ router.use('/activities', activitiesRouter)
 router.use('/members', membersRouter)
 router.use('/organization', organizationRouter)
 router.use('/news', newsRouter)
+router.use('/contacts', contactRouter)
 
 module.exports = router
