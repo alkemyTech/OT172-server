@@ -1,5 +1,5 @@
 // const createError = require('http-errors')
-const { getAllContacts } = require('../services/contactsService')
+const { getAllContacts, saveContact } = require('../services/contactsService')
 
 module.exports = {
   async getContacts (req, res, next) {
@@ -12,6 +12,17 @@ module.exports = {
     } catch (error) {
       next(error)
     }
+  },
+  async addContact (req, res, next) {
+    try {
+      const { name, email, phone } = req.body
+      const newContact = await saveContact({ name, email, phone })
+      res.json({
+        ok: true,
+        newContact
+      })
+    } catch (error) {
+      next(error)
+    }
   }
-
 }

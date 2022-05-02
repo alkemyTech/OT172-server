@@ -8,5 +8,9 @@ module.exports = {
   async findContact (id) {
     const contact = await Contacts.findByPk(id)
     return contact
+  },
+  async saveContact ({ name, email, phone = '', message = '' }) {
+    const contact = await Contacts.create({ name, email, phone, message })
+    return contact
   }
 }
