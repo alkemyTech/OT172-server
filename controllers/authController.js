@@ -16,14 +16,15 @@ module.exports = {
         const passwordsMatch = await comparePassword(password, user.password)
         if (passwordsMatch) {
           const { password, ...sentData } = user.dataValues
-
           const token = createAccessToken(user.id, user.email)
-
+          const createdUser = await findUser(email)
+          const roleId = createdUser.roleId
           console.log(`User [${email}] login was successful`)
           res.status(200).json({
             ok: true,
             token,
-            user: sentData
+            user: sentData,
+            roleId
           })
         } else {
           console.log(`User [${email}] provided wrong credentials`)
@@ -43,7 +44,6 @@ module.exports = {
       const { firstName, lastName, email, password } = req.body
 
       const encryptedPassword = await hashPassword(password)
-
       const user = await findOrCreateUser(
         firstName,
         lastName,
