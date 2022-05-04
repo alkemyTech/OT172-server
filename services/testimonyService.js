@@ -14,5 +14,17 @@ module.exports = {
 
   async deleteTestimony (id) {
     await Testimony.destroy({ where: { id } })
+  },
+
+  async updateTestimony (id, testimonyUpdates) {
+    const testimonyFound = await Testimony.findByPk(id)
+    if (!testimonyFound) {
+      const error = new Error('This testimony doesn\'t exist')
+      error.status = 404
+      throw error
+    }
+    console.log(testimonyUpdates)
+    const pepe = await testimonyFound.update(testimonyUpdates)
+    // console.log(pepe)
   }
 }
