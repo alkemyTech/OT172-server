@@ -11,6 +11,10 @@ module.exports = {
     {
       name: 'News',
       description: 'News CRUD, endpoints'
+    },
+    {
+      name: 'Testimonials',
+      description: 'Testimonials CRUD endpoints'
     }
   ]
 }
