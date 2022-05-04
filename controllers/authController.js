@@ -11,7 +11,7 @@ module.exports = {
 
       if (!user) {
         console.log(`User ${email} does not exist`)
-        res.status(404).json({ ok: false, msg: 'User does not exist' })
+        res.status(404).json({ ok: false, msg: `No existe usuario registrado con el email ${email}` })
       } else {
         const passwordsMatch = await comparePassword(password, user.password)
         if (passwordsMatch) {
@@ -30,7 +30,7 @@ module.exports = {
           console.log(`User [${email}] provided wrong credentials`)
           res
             .status(401)
-            .json({ ok: false, msg: 'User provided wrong credentials' })
+            .json({ ok: false, msg: 'Contraseña incorrecta' })
         }
       }
     } catch (err) {
@@ -62,7 +62,7 @@ module.exports = {
         console.log(`${email} already in use`)
         res
           .status(400)
-          .json({ ok: false, msg: `Email ${email} already in use` })
+          .json({ ok: false, msg: `El email ${email} ya se encuentra registrado`})
       }
     } catch (error) {
       console.log(`Something wrong. Error: ${error.message}`)
