@@ -248,6 +248,23 @@ module.exports = {
             allowNull: true
           }
         }
+      },
+      Testimony: {
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string',
+            default: 'Primer Testimonio'
+          },
+          image: {
+            type: 'string',
+            default: 'https://www.alkemy.org/static/media/meli.a0e74e85.svg'
+          },
+          content: {
+            type: 'string',
+            default: 'Contenido Primer Testimonio'
+          }
+        }
       }
     }
   }

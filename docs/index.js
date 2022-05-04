@@ -6,6 +6,7 @@ const tags = require('./tags')
 const users = require('./users')
 const members = require('./members')
 const news = require('./news')
+const testimonials = require('./testimonials')
 
 module.exports = {
   ...basicInfo,
@@ -15,6 +16,7 @@ module.exports = {
   paths: {
     ...users,
     ...members,
-    ...news
+    ...news,
+    ...testimonials
   }
 }
