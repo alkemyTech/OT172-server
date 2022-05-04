@@ -1,4 +1,4 @@
-const { findUser, findUsers } = require('../services/userService')
+const { findUser, findUsers, removeUser } = require('../services/userService')
 const { createAccessToken } = require('../auth/jwt')
 
 const updateUser = async (req, res) => {
@@ -49,7 +49,38 @@ const getAllUsers = async (req, res, next) => {
   }
 }
 
+const getUserById = async (req, res) => {
+  try {
+    const user = await findUser(req.params.id)
+
+    if (user) {
+      const { password, ...sentValues } = user.dataValues
+
+      res.status(200).json({
+        ok: true,
+        user: sentValues
+      })
+    } else {
+      res.status(404).json({ ok: false, msg: 'User not found' })
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+}
+
+const deleteUser = async (req, res) => {
+  const id = req.params.id
+  try {
+    await removeUser(id)
+    res.status(200).send({ message: 'User deleted' })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
   updateUser,
-  getAllUsers
+  deleteUser,
+  getAllUsers,
+  getUserById
 }
