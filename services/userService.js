@@ -9,6 +9,7 @@ const findUser = async (id) => {
 const findUsers = async () => {
   const newsList = await User.findAll({
     attributes: [
+      'id',
       'firstName',
       'lastName',
       'email',
@@ -19,7 +20,12 @@ const findUsers = async () => {
   return newsList
 }
 
+const removeUser = async (id) => {
+  await User.destroy({ where: { id } })
+}
+
 module.exports = {
+  removeUser,
   findUser,
   findUsers
 }
