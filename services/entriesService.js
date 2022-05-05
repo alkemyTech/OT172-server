@@ -6,6 +6,7 @@ const getAllNews = async () => {
       type: 'news'
     },
     attributes: [
+      'id',
       'name',
       'image',
       'createdAt'
