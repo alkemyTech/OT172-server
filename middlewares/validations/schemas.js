@@ -1,5 +1,6 @@
 const Joi = require('joi')
 const { findCategory } = require('../../services/categoriesService')
+const { findNewByCategory } = require('../../services/entriesService')
 
 const createUserSchema = Joi.object({
   firstName: Joi.string()
@@ -56,4 +57,15 @@ const validateExistenceCategory = async (req, res, next) => {
   }
 }
 
-module.exports = { createUserSchema, createCategorySchema, createNewsSchema, validateExistenceCategory }
+const validateCategoryInUse = async (req, res, next) => {
+  const { id } = req.params
+  const temp = await findNewByCategory(id)
+  console.log('hhhh', temp, id)
+  if (temp === null) {
+    next()
+  } else {
+    res.status(404).send({ message: 'The category is used in DB.' })
+  }
+}
+
+module.exports = { createUserSchema, createCategorySchema, createNewsSchema, validateExistenceCategory, validateCategoryInUse }
