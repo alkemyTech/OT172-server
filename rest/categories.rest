@@ -11,3 +11,8 @@ Content-Type: {{contentType}}
   "name":"CategoriaTest",
   "description":"Descripcion Categoria 01"
 }
+
+### Get all categories
+GET {{host}}categories
+Content-Type: {{contentType}}
+
