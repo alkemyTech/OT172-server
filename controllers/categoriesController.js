@@ -1,4 +1,4 @@
-const { createCategory, getCategories, putCategories } = require('../services/categoriesService')
+const { createCategory, getCategories, putCategories, removeCategory } = require('../services/categoriesService')
 
 module.exports = {
   async create (req, res) {
@@ -35,6 +35,16 @@ module.exports = {
     try {
       await putCategories(id, req)
       res.status(200).send({ message: 'updated' })
+    } catch (error) {
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async deleteCategory (req, res) {
+    const id = req.params.id
+    try {
+      // Check if category is relacionate.
+      await removeCategory(id)
+      res.status(200).send({ message: 'deleted' })
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
