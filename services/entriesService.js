@@ -24,7 +24,7 @@ const findNew = async id => {
       type: 'news'
     }
   })
-
+  if (!newFound) return null
   const categoryFounded = await findCategory(newFound.categoryId)
   return { ...newFound.dataValues, categoryName: categoryFounded.name }
 }

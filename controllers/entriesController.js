@@ -13,6 +13,7 @@ const getAllNews = async (req, res, next) => {
 const getNewById = async (req, res, next) => {
   try {
     const singleNew = await entriesService.findNew(req.params.id)
+    if (singleNew === null) res.status(200).json({ ok: false })
     res.status(200).json(singleNew)
   } catch (err) {
     next(err)
