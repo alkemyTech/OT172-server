@@ -4,7 +4,7 @@ const router = express.Router()
 
 const categoriesController = require('../controllers/categoriesController')
 const { validateData } = require('../middlewares/auth')
-const { createCategorySchema, validateExistenceCategory } = require('../middlewares/validations/schemas')
+const { createCategorySchema, validateExistenceCategory, validateCategoryInUse } = require('../middlewares/validations/schemas')
 
 router.post(
   '/',
@@ -13,6 +13,8 @@ router.post(
 )
 
 router.put('/:id', [validateData(createCategorySchema), validateExistenceCategory], categoriesController.putCategory)
+
+router.delete('/:id', [validateExistenceCategory, validateCategoryInUse], categoriesController.deleteCategory)
 
 router.get(
   '/',
