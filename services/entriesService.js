@@ -1,4 +1,5 @@
 const { Entries } = require('../models')
+const { findCategory } = require('./categoriesService')
 
 const getAllNews = async () => {
   const newsList = await Entries.findAll({
@@ -23,8 +24,11 @@ const findNew = async id => {
       type: 'news'
     }
   })
-  return newFound
+
+  const categoryFounded = await findCategory(newFound.categoryId)
+  return { ...newFound.dataValues, categoryName: categoryFounded.name }
 }
+
 const deleteNew = async (id) => {
   await Entries.destroy({ where: { id } })
 }
