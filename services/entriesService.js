@@ -29,6 +29,16 @@ const findNew = async id => {
   return { ...newFound.dataValues, categoryName: categoryFounded.name }
 }
 
+const findNewByCategory = async id => {
+  const newFound = await Entries.findOne({
+    where: {
+      categoryId: id
+    }
+  })
+  console.log('eeee', { newFound }, id)
+  return newFound
+}
+
 const deleteNew = async (id) => {
   await Entries.destroy({ where: { id } })
 }
@@ -44,5 +54,6 @@ module.exports = {
   getAllNews,
   deleteNew,
   findNew,
+  findNewByCategory,
   createNew
 }
