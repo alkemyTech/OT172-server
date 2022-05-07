@@ -1,5 +1,4 @@
-const { Entries } = require('../models')
-const { findCategory } = require('./categoriesService')
+const { Entries, Categories } = require('../models')
 
 const getAllNews = async () => {
   const newsList = await Entries.findAll({
@@ -22,11 +21,11 @@ const findNew = async id => {
     where: {
       id,
       type: 'news'
-    }
+    },
+    include: [{ model: Categories, as: 'category', attributes: ['id', 'name'] }]
   })
   if (!newFound) return null
-  const categoryFounded = await findCategory(newFound.categoryId)
-  return { ...newFound.dataValues, categoryName: categoryFounded.name }
+  return newFound
 }
 
 const findNewByCategory = async id => {
@@ -35,7 +34,6 @@ const findNewByCategory = async id => {
       categoryId: id
     }
   })
-  console.log('eeee', { newFound }, id)
   return newFound
 }
 
