@@ -1,4 +1,4 @@
-const { createCategory, getCategories, putCategories, removeCategory } = require('../services/categoriesService')
+const { createCategory, getCategories, findCategory, putCategories, removeCategory } = require('../services/categoriesService')
 
 module.exports = {
   async create (req, res) {
@@ -26,6 +26,15 @@ module.exports = {
       const categories = await getCategories()
       const nameCategories = categories.map(c => { return { name: c.name, id: c.id } })
       res.status(200).json(nameCategories)
+    } catch (error) {
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async getCategory (req, res) {
+    const id = req.params.id
+    try {
+      const category = await findCategory(id)
+      res.status(200).json(category)
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
