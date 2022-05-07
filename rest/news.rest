@@ -10,11 +10,11 @@ GET {{host}}news
 x-access-token: {{token}}
 
 ### Get a new by id
-GET {{host}}news/3
+GET {{host}}news/1
 x-access-token: {{token}}
 
 ### Delete a news
-DELETE {{host}}news/{{id}}
+DELETE {{host}}news/18
 x-access-token: {{token}}
 
 ### Create a member

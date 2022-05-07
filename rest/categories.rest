@@ -16,3 +16,7 @@ Content-Type: {{contentType}}
 GET {{host}}categories
 Content-Type: {{contentType}}
 
+
+### Delete a category
+DELETE {{host}}categories/44
+Content-Type: {{contentType}}
