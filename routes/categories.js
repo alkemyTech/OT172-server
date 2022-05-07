@@ -20,5 +20,6 @@ router.get(
   '/',
   categoriesController.getCategories
 )
+router.get('/:id', categoriesController.getCategory)
 
 module.exports = router
