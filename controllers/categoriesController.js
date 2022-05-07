@@ -1,4 +1,4 @@
-const { createCategory, getCategories, putCategories } = require('../services/categoriesService')
+const { createCategory, getCategories, putCategories, removeCategory } = require('../services/categoriesService')
 
 module.exports = {
   async create (req, res) {
@@ -24,8 +24,8 @@ module.exports = {
   async getCategories (req, res) {
     try {
       const categories = await getCategories()
-      const nameCategories = categories.map(c => c.name)
-      res.status(200).json({ nameCategories })
+      const nameCategories = categories.map(c => { return { name: c.name, id: c.id } })
+      res.status(200).json(nameCategories)
     } catch (error) {
       res.status(500).json({ error: error.message })
     }
@@ -35,6 +35,16 @@ module.exports = {
     try {
       await putCategories(id, req)
       res.status(200).send({ message: 'updated' })
+    } catch (error) {
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async deleteCategory (req, res) {
+    const id = req.params.id
+    try {
+      // Check if category is relacionate.
+      await removeCategory(id)
+      res.status(200).send({ message: 'deleted' })
     } catch (error) {
       res.status(500).json({ error: error.message })
     }

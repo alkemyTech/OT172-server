@@ -9,6 +9,10 @@
 GET {{host}}news
 x-access-token: {{token}}
 
+### Get a new by id
+GET {{host}}news/3
+x-access-token: {{token}}
+
 ### Delete a news
 DELETE {{host}}news/{{id}}
 x-access-token: {{token}}

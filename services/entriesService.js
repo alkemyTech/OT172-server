@@ -1,4 +1,5 @@
 const { Entries } = require('../models')
+const { findCategory } = require('./categoriesService')
 
 const getAllNews = async () => {
   const newsList = await Entries.findAll({
@@ -23,8 +24,21 @@ const findNew = async id => {
       type: 'news'
     }
   })
+  if (!newFound) return null
+  const categoryFounded = await findCategory(newFound.categoryId)
+  return { ...newFound.dataValues, categoryName: categoryFounded.name }
+}
+
+const findNewByCategory = async id => {
+  const newFound = await Entries.findOne({
+    where: {
+      categoryId: id
+    }
+  })
+  console.log('eeee', { newFound }, id)
   return newFound
 }
+
 const deleteNew = async (id) => {
   await Entries.destroy({ where: { id } })
 }
@@ -40,5 +54,6 @@ module.exports = {
   getAllNews,
   deleteNew,
   findNew,
+  findNewByCategory,
   createNew
 }
