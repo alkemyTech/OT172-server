@@ -1,5 +1,4 @@
-const { postActivity } = require('../services/activityService')
-const { putActivity } = require('../services/activityService')
+const { postActivity, putActivity, findActivity, findActivities } = require('../services/activityService')
 
 const createActivity = async (req, res) => {
   try {
@@ -21,14 +20,35 @@ const createActivity = async (req, res) => {
 const updateActivity = async (req, res) => {
   const id = req.params.id
   try {
-    await putActivity(id, req)
-    res.status(200).send({ message: 'updated' })
+    await putActivity(id, req.body)
+    res.status(200).send({ ...req.body, id })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
+const getActivity = async (req, res) => {
+  const id = req.params.id
+  try {
+    const activity = await findActivity(id)
+    res.status(200).send(activity)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
+const getActivities = async (req, res) => {
+  try {
+    const activities = await findActivities()
+    res.status(200).send(activities)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
 }
 
 module.exports = {
+  getActivity,
+  getActivities,
   createActivity,
   updateActivity
 }
