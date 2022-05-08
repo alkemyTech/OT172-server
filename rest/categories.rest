@@ -8,7 +8,7 @@ POST {{host}}categories
 Content-Type: {{contentType}}
  
 {
-  "name":"CategoriaTest",
+  "name":"CategoriaTestq",
   "description":"Descripcion Categoria 01"
 }
 
@@ -16,6 +16,9 @@ Content-Type: {{contentType}}
 GET {{host}}categories
 Content-Type: {{contentType}}
 
+### Get a category
+GET {{host}}categories/1
+Content-Type: {{contentType}}
 
 ### Delete a category
 DELETE {{host}}categories/44
