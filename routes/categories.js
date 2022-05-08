@@ -12,7 +12,7 @@ router.post(
   categoriesController.create
 )
 
-router.put('/:id', [validateData(createCategorySchema), validateExistenceCategory], categoriesController.putCategory)
+router.patch('/:id', [validateData(createCategorySchema), validateExistenceCategory], categoriesController.putCategory)
 
 router.delete('/:id', [validateExistenceCategory, validateCategoryInUse], categoriesController.deleteCategory)
 

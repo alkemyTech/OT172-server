@@ -9,12 +9,12 @@ x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Actividad Agregada",
+  "name": "Actividad Agregadaq",
   "content": "Contenido Agregado"
 }
 
 ### Update an activitiy
-PUT {{host}}activities/3
+PATCH  {{host}}activities/3
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
@@ -22,3 +22,11 @@ Content-Type: {{contentType}}
   "name": "Actividad editada",
   "content": "Contenido editado"
 }
+
+### Get all activities
+GET {{host}}activities
+Content-Type: {{contentType}}
+
+### Get an activity
+GET {{host}}activities/1
+Content-Type: {{contentType}}
