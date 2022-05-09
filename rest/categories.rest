@@ -17,9 +17,18 @@ GET {{host}}categories
 Content-Type: {{contentType}}
 
 ### Get a category
-GET {{host}}categories/1
+GET {{host}}categories/20
 Content-Type: {{contentType}}
 
 ### Delete a category
 DELETE {{host}}categories/44
 Content-Type: {{contentType}}
+
+### Edit a category
+PATCH  {{host}}categories/20
+Content-Type: {{contentType}}
+
+{
+  "name":"AAAq",
+  "description":"Descripcion Categoria"
+}

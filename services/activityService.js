@@ -8,11 +8,15 @@ module.exports = {
       content
     })
   },
-  async putActivity (id, req) {
-    await Activities.update(req.body, { where: { id } })
+  async putActivity (id, data) {
+    await Activities.update(data, { where: { id } })
   },
   async findActivity (id) {
     const activity = await Activities.findByPk(id)
     return activity
+  },
+  async findActivities () {
+    const activities = await Activities.findAll()
+    return activities
   }
 }
