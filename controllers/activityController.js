@@ -1,4 +1,4 @@
-const { postActivity, putActivity, findActivity, findActivities } = require('../services/activityService')
+const { postActivity, putActivity, findActivity, findActivities, removeActivity } = require('../services/activityService')
 
 const createActivity = async (req, res) => {
   try {
@@ -46,7 +46,18 @@ const getActivities = async (req, res) => {
   }
 }
 
+const deleteActivity = async (req, res) => {
+  const id = req.params.id
+  try {
+    await removeActivity(id)
+    res.status(200).send({ message: 'deleted', id })
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
+  deleteActivity,
   getActivity,
   getActivities,
   createActivity,

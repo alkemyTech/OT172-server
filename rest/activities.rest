@@ -30,3 +30,7 @@ Content-Type: {{contentType}}
 ### Get an activity
 GET {{host}}activities/1
 Content-Type: {{contentType}}
+
+### Update an activitiy
+DELETE   {{host}}activities/4
+x-access-token: {{token}}

@@ -18,5 +18,8 @@ module.exports = {
   async findActivities () {
     const activities = await Activities.findAll()
     return activities
+  },
+  async removeActivity (id) {
+    await Activities.destroy({ where: { id } })
   }
 }
