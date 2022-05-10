@@ -46,7 +46,7 @@ const deleteNew = async (req, res, next) => {
 const createNew = async (req, res, next) => {
   try {
     const newToCreate = req.body
-    console.log(newToCreate)
+    //console.log(newToCreate)
     await entriesService.createNew(newToCreate)
     res.status(201).json({ message: 'created' })
   } catch (err) {

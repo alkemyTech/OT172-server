@@ -23,8 +23,7 @@ module.exports = {
       error.status = 404
       throw error
     }
-    console.log(testimonyUpdates)
+    //console.log(testimonyUpdates)
     const pepe = await testimonyFound.update(testimonyUpdates)
-    // console.log(pepe)
   }
 }

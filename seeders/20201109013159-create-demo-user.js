@@ -7,7 +7,7 @@ module.exports = {
       firstName: 'Usuario',
       lastName: 'Demo',
       email: 'test@test.com',
-      password: `${bcrypt.hashSync('A.123456', 10)}`,
+      password: `${bcrypt.hashSync('Aa.123456', 10)}`,
       roleId: 1,
       image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
       createdAt: new Date(),

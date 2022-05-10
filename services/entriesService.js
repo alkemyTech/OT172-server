@@ -12,7 +12,7 @@ const getAllNews = async () => {
       'createdAt'
     ]
   })
-  console.log(newsList)
+  //console.log(newsList)
   return newsList
 }
 
