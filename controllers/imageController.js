@@ -9,7 +9,7 @@ module.exports = {
     //   })
     // }
     const fileName = req.body.file
-    console.log('####', req.body.file)
+    //console.log('####', req.body.file)
     try {
       const image = await postFile(fileName)
 

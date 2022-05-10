@@ -53,7 +53,7 @@ const getFile = async (id) => {
 
   if (image.Body.statusCode === 200) {
     const url = getFileUrl(id)
-    console.log(url)
+    //console.log(url)
     return ({ url })
   } else {
     return image
