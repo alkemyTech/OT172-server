@@ -55,8 +55,8 @@ module.exports = {
     },
     {
       firstName: 'Silvia',
-      lastName: 'Pardo',
-      email: 'silvia@mail.com',
+      lastName: 'Lopez',
+      email: 'silviaLopez@mail.com',
       password: `${bcrypt.hashSync('A.silvia123', 10)}`,
       roleId: 1,
       image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
@@ -75,8 +75,8 @@ module.exports = {
     },
     {
       firstName: 'John',
-      lastName: 'Pruitt',
-      email: 'john@mail.com',
+      lastName: 'Lemon',
+      email: 'johnLemon@mail.com',
       password: `${bcrypt.hashSync('A.john123', 10)}`,
       roleId: 1,
       image: 'https://www.designevo.com/res/templates/thumb_small/colorful-hand-and-warm-community.png',
