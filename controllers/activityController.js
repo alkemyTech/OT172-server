@@ -19,8 +19,12 @@ const createActivity = async (req, res) => {
 
 const updateActivity = async (req, res) => {
   const id = req.params.id
+  const { image, ...restActivity } = req.body
   try {
-    await putActivity(id, req.body)
+    if (image !== null) {
+      restActivity.image = image
+    }
+    await putActivity(id, restActivity)
     res.status(200).send({ ...req.body, id })
   } catch (error) {
     res.status(500).json({ error: error.message })
