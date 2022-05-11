@@ -14,5 +14,5 @@ Content-Type: {{contentType}}
 }
 
 ### Get an image
-GET {{host}}images/1651465007985-imgtestv2.jpg
+GET {{host}}images/1652302378369-tmp-1-1652302378349
 x-access-token: {{token}}
