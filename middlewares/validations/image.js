@@ -3,7 +3,7 @@ const fs = require('fs-extra')
 
 const hasImage = async (req, res, next) => {
   try {
-    let image = null
+    let image = req.body.image || null
     if (req.files?.image) {
       const result = await postFile(req.files.image.tempFilePath)
       const urlImage = await getFile(result.keyId)
