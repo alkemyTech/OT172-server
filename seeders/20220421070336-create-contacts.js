@@ -10,7 +10,6 @@ module.exports = {
           email: 'juan@gmail.com',
           phone: '123456789',
           message: 'Hola soy un mensaje',
-          deletedAt: new Date(),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -19,7 +18,6 @@ module.exports = {
           email: 'simpsonhomer@gmail.com',
           phone: '123456710',
           message: 'Hola soy otro mensaje',
-          deletedAt: new Date(),
           createdAt: new Date(),
           updatedAt: new Date()
         }
