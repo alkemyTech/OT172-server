@@ -9,11 +9,12 @@ const {
   createActivity,
   updateActivity
 } = require('../controllers/activityController')
+const { hasImage } = require('../middlewares/validations/image')
 
 router.get('/', getActivities)
 router.get('/:id', getActivity)
-router.post('/', [validateActivity], createActivity)
-router.patch('/:id', [validateActivity, validateExistenceActivity], updateActivity)
+router.post('/', [validateActivity, hasImage], createActivity)
+router.patch('/:id', [validateActivity, validateExistenceActivity, hasImage], updateActivity)
 router.delete('/:id', [validateExistenceActivity], deleteActivity)
 
 module.exports = router

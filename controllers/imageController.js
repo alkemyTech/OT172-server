@@ -3,13 +3,13 @@ const { postFile, getFile } = require('../services/amazonS3')
 module.exports = {
   async postImage (req, res) {
     // Habilitar y probar al enviar archivos
-    // if (!req.file) {
-    //   return res.status(400).json({
-    //     error: 'Ha habido un error. Por favor, envíe una imagen en la petición.'
-    //   })
-    // }
-    const fileName = req.body.file
-    //console.log('####', req.body.file)
+    if (!req.file) {
+      return res.status(400).json({
+        error: 'Ha habido un error. Por favor, envíe una imagen en la petición.'
+      })
+    }
+    //console.log('####', req.file)
+    const fileName = req.file.name
     try {
       const image = await postFile(fileName)
 

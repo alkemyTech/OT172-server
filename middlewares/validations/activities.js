@@ -18,7 +18,9 @@ const validateActivity = (req, res, next) => {
 }
 const validateExistenceActivity = async (req, res, next) => {
   const { id } = req.params
-  if (await findActivity(id) != null) {
+  const activity = await findActivity(id)
+  if (activity != null) {
+    req.body.image = activity.image
     next()
   } else {
     res.status(404).send({ message: 'The requested resource was not found.' })
