@@ -8,7 +8,6 @@ module.exports = {
         error: 'Ha habido un error. Por favor, envíe una imagen en la petición.'
       })
     }
-    //console.log('####', req.file)
     const fileName = req.file.name
     try {
       const image = await postFile(fileName)

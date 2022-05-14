@@ -25,14 +25,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        references: {
+      category: {
+        type: Sequelize.STRING,
+        /*references: {//Modified to test
           model: 'Categories',
           key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        },*/
+        allowNull:false
+        /*onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'*/
       },
       deletedAt: {
         type: Sequelize.DATE
