@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       image: {
@@ -27,10 +27,7 @@ module.exports = {
       },
       categoryId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Categories',
-          key: 'id'
-        },
+        allowNull:false,
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
       },

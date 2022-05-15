@@ -12,7 +12,6 @@ const getAllNews = async () => {
       'createdAt'
     ]
   })
-  //console.log(newsList)
   return newsList
 }
 
@@ -48,10 +47,15 @@ const createNew = async (newToCreate) => {
   })
 }
 
+const updateNew= async(id,data)=>{
+  return await Entries.update(data, { where: { id: id } })
+}
+
 module.exports = {
   getAllNews,
   deleteNew,
   findNew,
   findNewByCategory,
-  createNew
+  createNew,
+  updateNew
 }

@@ -25,8 +25,12 @@ const getNewById = async (req, res, next) => {
 // This Method is used for update entries regardless of their type
 const updateEntrie = async (req, res) => {
   const reqId = req.params.id
+  const {image, ...restNew}= req.body
   try {
-    const entry = await Entries.update(req.body, { where: { id: reqId } })
+    if(image!=null){
+      restNew.image= image;
+    }
+    const entry = entriesService.updateNew(reqId, restNew)
     res.status(200).send({ id: entry, message: 'updated' })
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -46,7 +50,6 @@ const deleteNew = async (req, res, next) => {
 const createNew = async (req, res, next) => {
   try {
     const newToCreate = req.body
-    //console.log(newToCreate)
     await entriesService.createNew(newToCreate)
     res.status(201).json({ message: 'created' })
   } catch (err) {

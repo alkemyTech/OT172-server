@@ -60,7 +60,6 @@ const validateExistenceCategory = async (req, res, next) => {
 const validateCategoryInUse = async (req, res, next) => {
   const { id } = req.params
   const temp = await findNewByCategory(id)
-  //console.log('hhhh', temp, id)
   if (temp === null) {
     next()
   } else {
