@@ -15,7 +15,7 @@ module.exports = {
     })
     return member
   },
-  async updateMember (id, { name }) {
+  async putMember (id, { name }) {
     const member = await Members.findByPk(id)
     if (!member) throw createError(404, 'Member not found')
     await Members.update({

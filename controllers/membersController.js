@@ -1,13 +1,10 @@
-const { getAllMembers, createMember, updateMember, removeMember } = require('../services/membersService')
+const { getAllMembers, createMember, putMember, removeMember, findMember } = require('../services/membersService')
 
 module.exports = {
   async getMembers (req, res, next) {
     try {
       const members = await getAllMembers()
-      res.json({
-        ok: true,
-        members
-      })
+      res.json(members)
     } catch (error) {
       next(error)
     }
@@ -25,16 +22,25 @@ module.exports = {
     }
   },
   async updateMember (req, res, next) {
+    const id = req.params.id
+    const { image, ...restMemmber } = req.body
     try {
-      const { id } = req.params
-      const { name } = req.body
-      await updateMember(id, name)
-      res.json({
-        ok: true,
-        message: 'Member updated successfully!'
-      })
+      if (image !== null) {
+        restMemmber.image = image
+      }
+      await putMember(id, restMemmber)
+      res.status(200).send({ ...req.body, id })
     } catch (error) {
-      next(error)
+      res.status(500).json({ error: error.message })
+    }
+  },
+  async getMember (req, res, next) {
+    const id = req.params.id
+    try {
+      const member = await findMember(id)
+      res.status(200).send(member)
+    } catch (error) {
+      res.status(500).json({ error: error.message })
     }
   },
   async deleteMember (req, res, next) {

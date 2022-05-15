@@ -4,14 +4,16 @@ const { validateToken } = require('../middlewares/auth')
 const { isAdmin } = require('../middlewares/checkRoles')
 const { validateData } = require('../middlewares/auth')
 const { createMemberSchema, updateMemberSchema, validateExistenceMember } = require('../middlewares/validations/members')
-const { getMembers, addMember, updateMember, deleteMember } = require('../controllers/membersController')
-
-// router.use([validateToken, isAdmin])
+const { getMembers, getMember, addMember, updateMember, deleteMember } = require('../controllers/membersController')
+const { hasImage } = require('../middlewares/validations/image')
 
 router.get('/', getMembers)
-router.post('/', [validateToken, isAdmin, validateData(createMemberSchema)], addMember)
-router.patch('/:id', [validateToken, isAdmin, validateData(updateMemberSchema)], updateMember)
-// router.delete('/:id', [validateToken, isAdmin, validateExistenceMember], deleteMember)
-router.delete('/:id', deleteMember)
+router.get('/:id', getMember)
+
+router.use([validateToken, isAdmin])
+
+router.delete('/:id', [validateExistenceMember], deleteMember)
+router.post('/', [validateData(createMemberSchema), hasImage], addMember)
+router.patch('/:id', [validateData(updateMemberSchema), hasImage], updateMember)
 
 module.exports = router

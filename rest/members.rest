@@ -13,19 +13,24 @@ x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Un member",
+  "name": "Fernandoa",
   "image": "https://www.fom78.com.ar/img/category/github.svg"
 }
 
 ### Update a member
-PUT {{host}}members/9
+PATCH  {{host}}members/11
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "editado"
+  "name": "Fernando Omar"
 }
 
-### Update an activitiy
-DELETE   {{host}}activities/9
+### Get an member
+GET {{host}}members/1
+Content-Type: {{contentType}}
+
+
+### Update an member
+DELETE   {{host}}members/12
 x-access-token: {{token}}
