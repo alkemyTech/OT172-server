@@ -5,7 +5,7 @@ const id = Joi.number().integer()
 const name = Joi.string()
 const content = Joi.string()
 const image = Joi.string()
-const category = Joi.string()
+const categoryId = Joi.number().integer()
 
 const getNewByIdSchema = Joi.object(
   {
@@ -17,7 +17,7 @@ const createNewSchema = Joi.object({
   name: name.required(),
   content: content.required(),
   image: image.optional(),
-  category: category.required()
+  categoryId: categoryId.required()
 })
 
 module.exports = {
