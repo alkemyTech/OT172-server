@@ -8,11 +8,15 @@ const { validateToken } = require('../middlewares/auth')
 
 const { validateData } = require('../middlewares/dataValidator')
 const { getNewByIdSchema, createNewSchema } = require('../schemas/news')
+const { hasImage } = require('../middlewares/validations/image')
 
 router.get('/', validateToken, entriesController.getAllNews)
 router.get('/:id', validateData(getNewByIdSchema, 'params'), validateToken, entriesController.getNewById)
 // router.put("/:id", [validateNew(createNewsSchema)], entriesController.updateEntrie)//news is a subtype of entries
 router.delete('/:id', [validateToken, isAdmin, validateExistenceNew], entriesController.deleteNew)
-router.post('/', validateToken, validateData(createNewSchema, 'body'), entriesController.createNew)
+
+//AGREGAR CHECKEO TOKEN CUANDO LLEGUE DESDE EL FRONT
+router.patch('/:id',[validateData(createNewSchema, 'body'),validateExistenceNew, hasImage], entriesController.updateEntrie)
+router.post('/', [validateData(createNewSchema, 'body'),hasImage], entriesController.createNew)
 
 module.exports = router

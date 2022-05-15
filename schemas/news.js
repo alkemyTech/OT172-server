@@ -16,7 +16,7 @@ const getNewByIdSchema = Joi.object(
 const createNewSchema = Joi.object({
   name: name.required(),
   content: content.required(),
-  image: image.required(),
+  image: image.optional(),
   categoryId: categoryId.required()
 })
 
