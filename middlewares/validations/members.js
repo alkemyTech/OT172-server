@@ -3,12 +3,14 @@ const { findMember } = require('../../services/membersService')
 
 const createMemberSchema = Joi.object({
   name: Joi.string().required(),
-  image: Joi.string()
+  image: Joi.optional(),
+  description: Joi.string().required()
 })
 
 const updateMemberSchema = Joi.object({
   name: Joi.string(),
-  image: Joi.string()
+  image: Joi.optional(),
+  description: Joi.string().required()
 })
 
 const validateExistenceMember = async (req, res, next) => {
