@@ -11,11 +11,13 @@ module.exports = (sequelize, Datatypes) => {
   Members.init(
     {
       name: Datatypes.STRING,
-      image: Datatypes.STRING
+      image: Datatypes.STRING,
+      description: Datatypes.TEXT
     },
     {
       sequelize,
-      modelName: 'Members'
+      modelName: 'Members',
+      paranoid: true
     }
   )
 
