@@ -18,10 +18,14 @@ Content-Type: {{contentType}}
 }
 
 ### Update a member
-PUT {{host}}members/2
+PUT {{host}}members/9
 x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
   "name": "editado"
 }
+
+### Update an activitiy
+DELETE   {{host}}activities/9
+x-access-token: {{token}}

@@ -26,5 +26,12 @@ module.exports = {
         id
       }
     })
+  },
+  async removeMember (id) {
+    await Members.destroy({ where: { id } })
+  },
+  async findMember (id) {
+    const member = await Members.findByPk(id)
+    return member
   }
 }

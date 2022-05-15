@@ -1,4 +1,4 @@
-const { getAllMembers, createMember, updateMember } = require('../services/membersService')
+const { getAllMembers, createMember, updateMember, removeMember } = require('../services/membersService')
 
 module.exports = {
   async getMembers (req, res, next) {
@@ -35,6 +35,15 @@ module.exports = {
       })
     } catch (error) {
       next(error)
+    }
+  },
+  async deleteMember (req, res, next) {
+    const id = req.params.id
+    try {
+      await removeMember(id)
+      res.status(200).send({ message: 'deleted', id })
+    } catch (error) {
+      res.status(500).json({ error: error.message })
     }
   }
 }

@@ -14,7 +14,7 @@ GET {{host}}news/1
 x-access-token: {{token}}
 
 ### Delete a news
-DELETE {{host}}news/18
+DELETE {{host}}news/2
 x-access-token: {{token}}
 
 ### Create a member

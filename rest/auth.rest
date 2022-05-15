@@ -9,7 +9,7 @@ POST {{host}}auth/login
 Content-Type: {{contentType}}
  
 {
-  "email":"admin@test.com",  "password":"123456"
+  "email":"santiago@mail.com",  "password":"A.santi123"
 }
 
 ### auth register
