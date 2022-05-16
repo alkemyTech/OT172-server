@@ -6,13 +6,8 @@ module.exports = {
     const members = await Members.findAll()
     return members
   },
-  async createMember (name, image) {
-    const member = await Members.create({
-      name,
-      image,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    })
+  async createMember (newMember) {
+    const member = await Members.create(newMember)
     return member
   },
   async putMember (id, { name }) {

@@ -1,12 +1,8 @@
 const { Activities } = require('../models')
 
 module.exports = {
-  async postActivity (name, image, content) {
-    await Activities.create({
-      name,
-      image,
-      content
-    })
+  async postActivity (newActivity) {
+    await Activities.create(newActivity)
   },
   async putActivity (id, data) {
     await Activities.update(data, { where: { id } })

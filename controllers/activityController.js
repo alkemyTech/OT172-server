@@ -4,9 +4,11 @@ const createActivity = async (req, res) => {
   try {
     const { name, image, content } = req.body
     await postActivity(
-      name,
-      image,
-      content
+      {
+        name,
+        image,
+        content
+      }
     )
     res.status(200).json({
       created: true,

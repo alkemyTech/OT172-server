@@ -11,8 +11,8 @@ module.exports = {
   },
   async addMember (req, res, next) {
     try {
-      const { name, image } = req.body
-      const member = await createMember(name, image)
+      const { name, image, description } = req.body
+      const member = await createMember({ name, image, description })
       res.json({
         ok: true,
         member
