@@ -63,7 +63,7 @@ module.exports = {
         content: 'Lorem ipsum bla bla bla',
         image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         type: 'news',
-        categoryId: 1,
+        categoryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -71,7 +71,7 @@ module.exports = {
         name: 'Evento unico',
         content: 'Lorem ipsum bla bla bla',
         image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        type: 'event',
+        type: 'news',
         categoryId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -80,7 +80,7 @@ module.exports = {
         name: 'Evento masivo',
         content: 'Lorem ipsum bla bla bla',
         image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-        type: 'event',
+        type: 'news',
         categoryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
