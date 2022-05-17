@@ -3,10 +3,11 @@ const entriesService = require('../services/entriesService')
 
 const getAllNews = async (req, res, next) => {
   try {
-    const newsList = await entriesService.getAllNews()
-    res.status(200).json({ newsList })
+    const pagination=req.query
+    const newsList = await entriesService.getAllNews(pagination)
+    res.status(200).json(newsList)
   } catch (err) {
-    next(err)
+    res.status(500).json({ error: error.message })
   }
 }
 
@@ -41,9 +42,9 @@ const deleteNew = async (req, res, next) => {
   const { id } = req.params
   try {
     await entriesService.deleteNew(id)
-    res.status(200).send({ id, message: 'deleted' })
+    res.status(200).send({ id, message: 'deleted', id })
   } catch (err) {
-    next(err)
+    res.status(500).json({ error: error.message })
   }
 }
 
