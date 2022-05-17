@@ -1,4 +1,4 @@
-// const Joi = require("joi")
+/*// const Joi = require("joi")
 const { findNew } = require('../../services/entriesService')
 
 const validateNew = schema => {
@@ -21,3 +21,4 @@ const validateExistenceNew = async (req, res, next) => {
 }
 
 module.exports = { validateNew, validateExistenceNew }
+*/
