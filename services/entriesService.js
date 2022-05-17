@@ -44,9 +44,10 @@ const createNew = async (newToCreate) => {
   })
 }
 
+
 const updateNew= async(id,data)=>{
   return await Entries.update(data, { where: { id: id } })
-}
+
 
 module.exports = {
   getAllNews,

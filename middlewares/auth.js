@@ -16,7 +16,6 @@ const authValidation = Joi.object({
 
 const validateToken = async (req, res, next) => {
   const token = req.headers['x-access-token']
-
   if (!token) return res.status(403).send('Token is missing')
 
   try {
