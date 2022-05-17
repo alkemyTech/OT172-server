@@ -28,7 +28,7 @@ GET {{host}}activities
 Content-Type: {{contentType}}
 
 ### Get an activity
-GET {{host}}activities/1
+GET {{host}}activities/99
 Content-Type: {{contentType}}
 
 ### Update an activitiy

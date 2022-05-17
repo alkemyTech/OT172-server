@@ -13,6 +13,7 @@ module.exports = {
   },
   async findActivities () {
     const activities = await Activities.findAll()
+    if (!activities) return null
     return activities
   },
   async removeActivity (id) {
