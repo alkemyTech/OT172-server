@@ -32,5 +32,5 @@ GET {{host}}activities/99
 Content-Type: {{contentType}}
 
 ### Update an activitiy
-DELETE   {{host}}activities/4
+DELETE   {{host}}activities/76
 x-access-token: {{token}}

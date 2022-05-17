@@ -13,7 +13,8 @@ x-access-token: {{token}}
 Content-Type: {{contentType}}
 
 {
-  "name": "Fernandoa",
+  "name": "Fernandoaqqq",
+  "description": "Fake kjfkjdjfvs",
   "image": "https://www.fom78.com.ar/img/category/github.svg"
 }
 
