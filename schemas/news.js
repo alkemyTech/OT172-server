@@ -5,7 +5,7 @@ const id = Joi.number().integer()
 const name = Joi.string()
 const content = Joi.string()
 const image = Joi.string()
-const category = Joi.string()
+const categoryId = Joi.string()
 
 const getNewByIdSchema = Joi.object(
   {
