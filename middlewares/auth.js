@@ -16,7 +16,7 @@ const authValidation = Joi.object({
 
 const validateToken = async (req, res, next) => {
   const token = req.headers['x-access-token']
-  if (!token) return res.status(403).send('Token is missing')
+  if (!token) return res.status(403).send({ error: 'Token is missing' })
 
   try {
     const decodeToken = jwt.verify(token, TOKEN_SECRET)
@@ -27,7 +27,7 @@ const validateToken = async (req, res, next) => {
     req.user = sentValues
     next()
   } catch (error) {
-    res.status(401).send('Token is invalid')
+    res.status(401).send({ error: 'Token is invalid' })
   }
 }
 

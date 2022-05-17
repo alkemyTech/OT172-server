@@ -3,11 +3,11 @@ const { Entries, Categories } = require('../models')
 const getAllNews = async (pagination) => {
   console.log(pagination)
   const newsList = await Entries.findAll({
-    order:[
+    order: [
       ['createdAt', 'DESC']
     ]/*,
     offset: parseInt (pagination.offset),
-    limit: parseInt (pagination.limit)*/
+    limit: parseInt (pagination.limit) */
   })
   return newsList
 }
@@ -44,10 +44,9 @@ const createNew = async (newToCreate) => {
   })
 }
 
-
-const updateNew= async(id,data)=>{
-  return await Entries.update(data, { where: { id: id } })
-
+const updateNew = async (id, data) => {
+  return await Entries.update(data, { where: { id } })
+}
 
 module.exports = {
   getAllNews,

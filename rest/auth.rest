@@ -38,6 +38,11 @@ Content-Type: {{contentType}}
   "roleId": 2
 }
 
+### user edit
+DELETE {{host}}users/33
+x-access-token:{{token}}
+
+
 ### Get all users
 GET {{host}}users
-x-access-token: {{token}}
+# x-access-token: {{token}}
