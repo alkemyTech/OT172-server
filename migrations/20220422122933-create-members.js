@@ -13,7 +13,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       image: {
-        type: Sequelize.BLOB
+        type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
+      deletedAt: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

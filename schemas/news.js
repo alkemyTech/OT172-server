@@ -17,7 +17,7 @@ const createNewSchema = Joi.object({
   name: name.required(),
   content: content.required(),
   image: image.optional(),
-  category: category.required()
+  categoryId: categoryId.required()
 })
 
 module.exports = {
