@@ -8,7 +8,7 @@ const { getMembers, getMember, addMember, updateMember, deleteMember } = require
 const { hasImage } = require('../middlewares/validations/image')
 
 router.get('/', getMembers)
-router.get('/:id', getMember)
+router.get('/:id', [validateExistenceMember], getMember)
 
 router.use([validateToken, isAdmin])
 
