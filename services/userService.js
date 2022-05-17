@@ -17,6 +17,8 @@ const findUsers = async () => {
       'roleId'
     ]
   })
+  if (!newsList) return null
+
   return newsList
 }
 
