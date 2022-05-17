@@ -1,16 +1,13 @@
 const { Entries, Categories } = require('../models')
 
-const getAllNews = async () => {
+const getAllNews = async (pagination) => {
+  console.log(pagination)
   const newsList = await Entries.findAll({
-    where: {
-      type: 'news'
-    },
-    attributes: [
-      'id',
-      'name',
-      'image',
-      'createdAt'
-    ]
+    order:[
+      ['createdAt', 'DESC']
+    ]/*,
+    offset: parseInt (pagination.offset),
+    limit: parseInt (pagination.limit)*/
   })
   return newsList
 }

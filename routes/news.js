@@ -13,7 +13,7 @@ const { hasImage } = require('../middlewares/validations/image')
 router.get('/', validateToken, entriesController.getAllNews)
 router.get('/:id', validateData(getNewByIdSchema, 'params'), validateToken, entriesController.getNewById)
 // router.put("/:id", [validateNew(createNewsSchema)], entriesController.updateEntrie)//news is a subtype of entries
-router.delete('/:id', [validateToken, isAdmin, validateExistenceNew], entriesController.deleteNew)
+router.delete('/:id', [/*validateToken, isAdmin,*/ validateExistenceNew], entriesController.deleteNew)
 
 //AGREGAR CHECKEO TOKEN CUANDO LLEGUE DESDE EL FRONT
 router.patch('/:id',[validateData(createNewSchema, 'body'),validateExistenceNew, hasImage], entriesController.updateEntrie)
