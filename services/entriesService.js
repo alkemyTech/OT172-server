@@ -15,8 +15,7 @@ const getAllNews = async (pagination) => {
 const findNew = async id => {
   const newFound = await Entries.findOne({
     where: {
-      id,
-      type: 'news'
+      id
     },
     include: [{ model: Categories, as: 'category', attributes: ['id', 'name'] }]
   })
