@@ -77,14 +77,10 @@ describe('GET Request to users', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const user = await User.create(fakeUser)
-
     await api
       .patch('/users')
       .set('Content-Type', 'application/json')
       .set('x-access-token', adminLogged.body.token)
-      .send(fakeUser)
-      .expect('Content-Type', /json/)
       .expect(200)
       // .expect((response) => {
       //   expect(response.body).toEqual({
@@ -98,7 +94,7 @@ describe('GET Request to users', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const user = await User.create(fakeUser)
+    const user = await User.create({ ...fakeUser, roleId: 2 })
 
     await api
       .get(`/users/${user.dataValues.id}`)
@@ -112,7 +108,7 @@ describe('GET Request to users', () => {
           user:
           {
             ...fakeUser,
-            id: `${user.dataValues.id}`,
+            id: user.dataValues.id,
             roleId: expect.any(Number),
             deletedAt: null,
             createdAt: expect.any(String),
@@ -170,8 +166,16 @@ describe('PUT Request to users/:id', () => {
       .expect(200)
       .expect((response) => {
         expect(response.body).toEqual({
-          ...fakeUser,
-          id: `${user.dataValues.id}`
+          ok: true,
+          token: expect.any(String),
+          user: {
+            ...fakeUser,
+            roleId: null,
+            id: user.dataValues.id,
+            createdAt: expect.any(String),
+            updatedAt: expect.any(String),
+            deletedAt: null
+          }
         })
       })
   })
