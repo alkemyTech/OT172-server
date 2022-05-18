@@ -4,12 +4,13 @@
 @contentType = application/json
 
 
-### auth login
+### auth login admin
 POST {{host}}auth/login
 Content-Type: {{contentType}}
  
 {
-  "email":"santiago@mail.com",  "password":"A.santi123"
+  "email":"alina@mail.com",  
+  "password":"A.alina123"
 }
 
 ### auth register
@@ -45,4 +46,4 @@ x-access-token:{{token}}
 
 ### Get all users
 GET {{host}}users
-# x-access-token: {{token}}
+x-access-token: {{token}}
