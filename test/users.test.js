@@ -24,19 +24,19 @@ const userAdmin = {
 describe('GET Request to users', () => {
   test('GET all users without token', async () => {
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .expect(403, { error: 'Token is missing' })
   })
   test('GET an users without token', async () => {
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .expect(403, { error: 'Token is missing' })
   })
   test('GET users with invalid token', async () => {
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .expect('Content-Type', /json/)
       .set('x-access-token', 'testtokeninvalid123')
@@ -44,7 +44,7 @@ describe('GET Request to users', () => {
   })
   test('GET user with invalid token', async () => {
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .expect('Content-Type', /json/)
       .set('x-access-token', 'testtokeninvalid123')
@@ -56,7 +56,7 @@ describe('GET Request to users', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .set('x-access-token', userLogged.body.token)
       .expect(403, { error: 'Admin role required' })
@@ -67,7 +67,7 @@ describe('GET Request to users', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .set('x-access-token', userLogged.body.token)
       .expect(403, { error: 'Admin role required' })
@@ -78,7 +78,7 @@ describe('GET Request to users', () => {
       .set('Content-Type', 'application/json')
       .send(userAdmin)
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .set('x-access-token', adminLogged.body.token)
       .expect(200)
