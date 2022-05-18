@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Organizations.init({
     name: DataTypes.STRING,
-    imageUrl: DataTypes.STRING,
+    image: DataTypes.STRING,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
     welcomeText: DataTypes.STRING,
