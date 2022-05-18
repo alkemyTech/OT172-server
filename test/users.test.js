@@ -24,19 +24,19 @@ const userAdmin = {
 describe('GET Request to users', () => {
   test('GET all users without token', async () => {
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .expect(403, { error: 'Token is missing' })
   })
   test('GET an users without token', async () => {
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .expect(403, { error: 'Token is missing' })
   })
   test('GET users with invalid token', async () => {
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .expect('Content-Type', /json/)
       .set('x-access-token', 'testtokeninvalid123')
@@ -44,7 +44,7 @@ describe('GET Request to users', () => {
   })
   test('GET user with invalid token', async () => {
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .expect('Content-Type', /json/)
       .set('x-access-token', 'testtokeninvalid123')
@@ -56,7 +56,7 @@ describe('GET Request to users', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
     await api
-      .patch('/users/1')
+      .get('/users/1')
       .set('Content-Type', 'application/json')
       .set('x-access-token', userLogged.body.token)
       .expect(403, { error: 'Admin role required' })
@@ -67,7 +67,7 @@ describe('GET Request to users', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .set('x-access-token', userLogged.body.token)
       .expect(403, { error: 'Admin role required' })
@@ -77,14 +77,10 @@ describe('GET Request to users', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const user = await User.create(fakeUser)
-
     await api
-      .patch('/users')
+      .get('/users')
       .set('Content-Type', 'application/json')
       .set('x-access-token', adminLogged.body.token)
-      .send(fakeUser)
-      .expect('Content-Type', /json/)
       .expect(200)
       // .expect((response) => {
       //   expect(response.body).toEqual({
@@ -98,7 +94,7 @@ describe('GET Request to users', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const user = await User.create(fakeUser)
+    const user = await User.create({ ...fakeUser, roleId: 2 })
 
     await api
       .get(`/users/${user.dataValues.id}`)
@@ -112,7 +108,7 @@ describe('GET Request to users', () => {
           user:
           {
             ...fakeUser,
-            id: `${user.dataValues.id}`,
+            id: user.dataValues.id,
             roleId: expect.any(Number),
             deletedAt: null,
             createdAt: expect.any(String),
@@ -170,8 +166,16 @@ describe('PUT Request to users/:id', () => {
       .expect(200)
       .expect((response) => {
         expect(response.body).toEqual({
-          ...fakeUser,
-          id: `${user.dataValues.id}`
+          ok: true,
+          token: expect.any(String),
+          user: {
+            ...fakeUser,
+            roleId: null,
+            id: user.dataValues.id,
+            createdAt: expect.any(String),
+            updatedAt: expect.any(String),
+            deletedAt: null
+          }
         })
       })
   })

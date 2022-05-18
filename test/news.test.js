@@ -28,12 +28,10 @@ describe('GET Request to news', () => {
       .set('Content-Type', 'application/json')
       .send(userAdmin)
 
-
     await api.get('/news')
       .expect('Content-Type', /json/)
       .set('x-access-token', adminLogged.body.token)
       .expect(200)
-
   })
   test('GET one new', async () => {
     const userLogged = await api
@@ -41,9 +39,9 @@ describe('GET Request to news', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
 
-    const entrie = await Entries.create(fakeNew)
+    const entry = await Entries.create(fakeNew)
     await api
-      .get(`/news/15`)
+      .get(`/news/${entry.dataValues.id}`)
       .expect('Content-Type', /json/)
       .set('x-access-token', userLogged.body.token)
       .expect(200)
@@ -58,7 +56,6 @@ describe('GET Request to news', () => {
       .get('/news/-1')
       .set('x-access-token', userLogged.body.token)
       .expect(404)
-
   })
 })
 
@@ -115,7 +112,6 @@ describe('POST Request to news', () => {
       .send(fakeNew)
       .expect(401, { error: 'Token is invalid' })
   })
-
 })
 
 // DELETE Request news
