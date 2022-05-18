@@ -19,7 +19,7 @@ module.exports = {
         name: 'Consejos para la poblacion',
         content: `
         <p><strong>Todo sobre las mascarillas en el contexto de la COVID-19</strong></p><p>&nbsp;</p><p>&nbsp;</p><p>Las mascarillas deben utilizarse como parte de una estrategia integral de medidas para suprimir la transmisión y salvar vidas; el uso de una mascarilla por sí sola no basta para proporcionar una protección adecuada contra la COVID-19.</p><p>Si la COVID-19 se propaga en su comunidad, cuídese adoptando algunas precauciones sencillas, por ejemplo, manteniendo el distanciamiento físico, llevando mascarilla, ventilando bien las habitaciones, evitando las aglomeraciones, lavándose las manos y cubriéndose la boca y la nariz con el codo flexionado o con un pañuelo al toser. Consulte las recomendaciones de su lugar de residencia y trabajo. <strong>Todas las medidas son necesarias.</strong></p><p><strong>Convierta el uso de la mascarilla en una parte normal de su interacción con otras personas.</strong> <strong>Para que sean lo más eficaces posibles, es esencial utilizar, guardar, limpiar y eliminar las mascarillas correctamente.</strong></p><p>Indicaciones básicas sobre la manera de <a href="https://youtu.be/ciUniZGD4tY">ponerse la mascarilla</a>:</p><ul><li>Lávese las manos antes de ponerse la mascarilla, y también antes y después de quitársela, y cada vez que la toque.</li><li>Compruebe que le cubre la nariz, la boca y el mentón.</li><li>Cuando se quite la mascarilla, guárdela en una bolsa de plástico limpia; si es de tela lávela cada día y si es una mascarilla médica, tírela a un cubo de basura.</li><li>No utilice mascarillas con válvulas.</li></ul><p>Si desea más detalles sobre qué tipo de mascarilla utilizar y cuándo, consulte nuestra sección de <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-on-covid-19-and-masks">Preguntas y respuestas</a>. También hay una página de Preguntas y respuestas sobre <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-children-and-masks-related-to-covid-19">los niños y las mascarillas</a></p><p><i>En esta </i><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/media-resources/science-in-5/episode-2"><i>entrevista</i></a><i>- en inglés &nbsp;encontrará más información sobre la manera en que el virus de la COVID-19 infecta a las personas, y sobre la reacción de nuestro organismo.</i></p><p><i>Para asesoramiento específico dirigido a las instancias decisorias, consulte </i><a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/technical-guidance"><i>las orientaciones técnicas de la OMS</i></a><i>.</i>&nbsp;</p><p>&nbsp;</p>
-        
+
         `,
         image: 'https://cohorte-abril-98a56bb4.s3.us-east-1.amazonaws.com/1652726478822-tmp-7-1652726478801',
         type: 'news',
@@ -54,7 +54,7 @@ module.exports = {
         content: 'Lorem ipsum bla bla bla',
         image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         type: 'news',
-        categoryId: 1,
+        categoryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
