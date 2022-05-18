@@ -3,10 +3,10 @@ const { findOrganization } = require('../../services/organizationServices')
 
 const validationOrganization = Joi.object({
   name: Joi.string().required(),
-  imageUrl: Joi.string().required(),
-  phone: Joi.string().required(),
-  adress: Joi.string().required(),
-  welcomeText: Joi.string().required(),
+  image: Joi.optional(),
+  phone: Joi.string(),
+  adress: Joi.string(),
+  welcomeText: Joi.string(),
   urlFacebook: Joi.optional(),
   urlLinkedin: Joi.optional(),
   urlInstagram: Joi.optional()

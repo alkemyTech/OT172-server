@@ -8,7 +8,7 @@ module.exports = {
         {
           name: 'Somos Más',
           phone: '1160112988',
-          imageUrl: 'https://assets-dev.alkemy.org/assets/logo.svg',
+          image: 'https://assets-dev.alkemy.org/assets/logo.svg',
           address: 'una direccion',
           welcomeText: 'Proyecto ONG - Somos Más',
           urlFacebook: 'https://es-la.facebook.com/Somos_Mas',
