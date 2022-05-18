@@ -12,8 +12,8 @@ const getOrganization = async (req, res) => {
 
 const createOrganization = async (req, res) => {
   try {
-    const { name, imageUrl, phone, adress, welcomeText, urlFacebook, urlLinkedin, urlInstagram } = req.body
-    await postOrganization(name, imageUrl, phone, adress, welcomeText, urlFacebook, urlLinkedin, urlInstagram)
+    const { name, image, phone, adress, welcomeText, urlFacebook, urlLinkedin, urlInstagram } = req.body
+    await postOrganization(name, image, phone, adress, welcomeText, urlFacebook, urlLinkedin, urlInstagram)
     res.status(200).json({
       created: true,
       msg: 'Organization created successfully!'
@@ -25,9 +25,19 @@ const createOrganization = async (req, res) => {
 
 const updateOrganization = async (req, res) => {
   const id = req.params.id
+  const {image, ...restActivity}=req.body
   try {
-    await putOrganization(id, req)
-    res.status(200).send({ message: 'updated' })
+    if (image !== null) {
+      restActivity.image = image
+    }
+
+   /* const dataAdapted= { //This is because inconsistences with the names of images
+      name: restActivity.name,
+      imageUrl: restActivity.image
+    }*/
+
+    await putOrganization(id, restActivity)
+    res.status(200).send({ ...req.body, id })
   } catch (error) {
     res.status(500).json({ error: error.message })
   }

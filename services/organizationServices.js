@@ -9,7 +9,8 @@ module.exports = {
       name, imageUrl, phone, adress, welcomeText, urlFacebook, urlLinkedin, urlInstagram
     })
   },
-  async putOrganization (id, req) {
-    await Organizations.update(req.body, { where: { id } })
+  async putOrganization (id, data) {
+    console.log(data)
+    await Organizations.update(data, { where: { id } })
   }
 }
