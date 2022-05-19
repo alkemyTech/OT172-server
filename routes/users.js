@@ -11,6 +11,6 @@ router.get('/:id', [validateExistenceUser, validateToken, isAdminOrUserSelf], ge
 
 router.patch('/:id', [validateToken, isAdminOrUserSelf], updateUser)
 
-router.delete('/:id', validateToken, isAdmin, deleteUser)
+router.delete('/:id', validateToken, isAdminOrUserSelf, deleteUser)
 
 module.exports = router
