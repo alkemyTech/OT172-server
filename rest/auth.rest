@@ -20,7 +20,7 @@ Content-Type: {{contentType}}
 {
   "firstName": "UsuarioAgregado",
   "lastName": "UsuarioApellido",
-  "email":"usuarioagregado@test.com",  "password":"Aa.12345678"
+  "email":"usuarioagregado1wq@test.com",  "password":"Aa.12345678"
 }
 
 ### user obtener todos
