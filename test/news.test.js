@@ -39,7 +39,7 @@ describe('GET Request to news', () => {
       .set('Content-Type', 'application/json')
       .send(userStandard)
 
-    const entry = await Entries.create(fakeNew)
+    const entry = await Entries.create({ ...fakeNew, type: 'news' })
     await api
       .get(`/news/${entry.dataValues.id}`)
       .expect('Content-Type', /json/)
@@ -82,7 +82,7 @@ describe('PATCH Request to news/:id', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const entrie = await Entries.create(fakeNew)
+    const entrie = await Entries.create({ ...fakeNew, type: 'news' })
 
     await api
       .patch(`/news/${entrie.dataValues.id}`)
@@ -148,7 +148,7 @@ describe('DELETE Request to news/:id', () => {
       .post('/auth/login')
       .set('Content-Type', 'application/json')
       .send(userAdmin)
-    const entrie = await Entries.create(fakeNew)
+    const entrie = await Entries.create({ ...fakeNew, type: 'news' })
     await api
       .delete(`/news/${entrie.dataValues.id}`)
       .set('Content-Type', 'application/json')
