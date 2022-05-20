@@ -50,19 +50,26 @@ module.exports = {
         email,
         encryptedPassword
       )
-      const token = createAccessToken(user.id, user.email)
 
       const createdUser = await findUser(email)
       const roleId = createdUser.roleId
 
       if (user[0]._options.isNewRecord) {
         console.log(`User ${email} successfully created`)
-        res.json({ firstName, lastName, email, encryptedPassword, token, roleId })
+        const { password, ...sentData } = user[0].dataValues
+        const token = createAccessToken(sentData.id, sentData.email)
+
+        res.status(200).json({
+          ok: true,
+          token,
+          user: sentData,
+          roleId
+        })
       } else {
         console.log(`${email} already in use`)
         res
           .status(400)
-          .json({ ok: false, msg: `El email ${email} ya se encuentra registrado`})
+          .json({ ok: false, msg: `El email ${email} ya se encuentra registrado` })
       }
     } catch (error) {
       console.log(`Something wrong. Error: ${error.message}`)

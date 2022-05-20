@@ -7,7 +7,7 @@ const { validateExistenceUser } = require('../middlewares/validations/users')
 
 router.get('/', validateToken, isAdmin, getAllUsers)
 
-router.get('/:id', [validateExistenceUser, validateToken, isAdmin], getUserById)
+router.get('/:id', [validateExistenceUser, validateToken, isAdminOrUserSelf], getUserById)
 
 router.patch('/:id', [validateToken, isAdminOrUserSelf], updateUser)
 
