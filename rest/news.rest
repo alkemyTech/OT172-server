@@ -19,7 +19,7 @@ x-access-token: {{token}}
 
 ### Create a member
 POST {{host}}news
-x-access-token: {{token}}
+x-access-token: {{token}}ww
 Content-Type: {{contentType}}
 
 {
