@@ -26,7 +26,6 @@ const createUserSchema = Joi.object({
 
 const createCategorySchema = Joi.object({
   name: Joi.string()
-    .alphanum()
     .min(3)
     .max(50)
     .required(),

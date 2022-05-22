@@ -6,14 +6,14 @@ module.exports = {
       'Categories',
       [
         {
-          name: 'novedad',
+          name: 'Novedad',
           description: 'novedad de la ong',
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
-          name: 'nueva novedad',
-          description: 'reciente novedad de la ong',
+          name: 'Evento',
+          description: 'Evento proximo de la ong',
           createdAt: new Date(),
           updatedAt: new Date()
         }
