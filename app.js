@@ -22,8 +22,19 @@ const pkg = require('./package.json')
 const app = express()
 
 app.set('pkg', pkg)
-
-app.use(cors())
+const corsOptions = {
+  // origin: false,
+  // "preflightContinue": true,
+  // origin: '*',
+  origin: ['http://localhost:3005', 'http://localhost:4000',
+    'https://somosmas-ten.vercel.app/', 'https://somosmas-ten.vercel.app'],
+  // credentials: true,
+  // SameSite:'None',
+  // Secure:true,
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
+}
+app.use(cors(corsOptions))
 
 app.use(logger('dev'))
 app.use(express.json())
