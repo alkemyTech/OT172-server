@@ -1,5 +1,6 @@
 const fileUpload = require('express-fileupload')
 const express = require('express')
+const helmet = require('helmet')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
@@ -21,7 +22,6 @@ const pkg = require('./package.json')
 
 const app = express()
 
-app.set('pkg', pkg)
 const corsOptions = {
   // origin: false,
   // "preflightContinue": true,
@@ -35,6 +35,8 @@ const corsOptions = {
   // allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
 }
 app.use(cors(corsOptions))
+app.use(helmet())
+app.set('pkg', pkg)
 
 app.use(logger('dev'))
 app.use(express.json())
