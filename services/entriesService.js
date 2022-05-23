@@ -1,7 +1,6 @@
 const { Entries, Categories } = require('../models')
 
 const getAllNews = async (pagination) => {
-  console.log(pagination)
   const newsList = await Entries.findAll({
     order: [
       ['createdAt', 'DESC']

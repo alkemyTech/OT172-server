@@ -12,7 +12,11 @@ module.exports = {
     return activity
   },
   async findActivities () {
-    const activities = await Activities.findAll()
+    const activities = await Activities.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
     if (!activities) return null
     return activities
   },

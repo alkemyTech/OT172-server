@@ -32,22 +32,26 @@ module.exports = {
         },
         {
           name: 'María García',
-          image: '',
-          description: 'Gradada en Administración y Dirección de Empresas en la Universidad de Madrid.',
+          image: 'https://cohorte-abril-98a56bb4.s3.us-east-1.amazonaws.com/1653281254046-tmp-1-1653281254028',
+          description: `
+          <p>Graduada en Administración y Dirección de Empresas en la Universidad de Madrid.</p><p>Le encanta pertenecer a esta fundacion, ayuda y lleva todas las cuentas en orden.</p>
+          `,
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
           name: 'Marco Fernandez',
-          image: '',
+          image: 'https://cohorte-abril-98a56bb4.s3.us-east-1.amazonaws.com/1653281284030-tmp-2-1653281284018',
           description: 'Posee mas de tres años de experiencia, en los últimos años ha trabajado en centros de atención a las personas mayores y he realizado cursos específicos de Rehabilitación y fisioterapia geriátrica: Valoración e intervención terapéutica y preventiva en la Universidad Europea Miguel de Cervantes.',
           createdAt: new Date(),
           updatedAt: new Date()
         },
         {
           name: 'Mario Fuentes',
-          image: '',
-          description: 'Formado y especializado en la Universidad de Barcelona, además de trabajar durante cinco años en el Hospital Clínico de Barcelona.',
+          image: 'https://cohorte-abril-98a56bb4.s3.us-east-1.amazonaws.com/1653281366682-tmp-3-1653281366674',
+          description: `
+          <p>Ha realizado estudios de postgrado sobre clínica de adultos en <strong>Centro Dos</strong> y en la Escuela del Psicoanálisis del <strong>Hospital J. T. Borda</strong>. Concurrió también a la Red de Enseñanza y Transmisión de la Escuela Freudiana de Buenos Aires <strong>(EFBA)</strong></p><p>Actualmente se desempeña como psicóloga clínica en <strong>AIFAN Salud mental</strong>; en <strong>Øtro Cauce Psicoanálisis</strong> y en su&nbsp; consultorio particular.</p><p>En forma paralela a la formación académica ha asistido y asiste a <strong>Grupos de Estudio</strong> (tradicional metodología de formación en psicoanálisis) en los que se lee y estudia la Obra de Sigmund Freud y Jaques Lacan.</p>
+          `,
           createdAt: new Date(),
           updatedAt: new Date()
         }
