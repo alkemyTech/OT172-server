@@ -81,3 +81,5 @@ Y luego crear dentro la estrucura correspondiente.
 npx sequelize-cli seed:generate --name create-data-model
 ```
 y dentro del esqueleto que crea llenar con datos de pruebas.
+
+npx jest --detectOpenHandles ./test/users.test.js

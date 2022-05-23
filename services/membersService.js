@@ -10,11 +10,12 @@ module.exports = {
     const member = await Members.create(newMember)
     return member
   },
-  async putMember (id, { name }) {
+  async putMember (id, { name, description }) {
     const member = await Members.findByPk(id)
     if (!member) throw createError(404, 'Member not found')
     await Members.update({
       name,
+      description,
       updatedAt: new Date()
     }, {
       where: {

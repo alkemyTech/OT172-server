@@ -44,7 +44,6 @@ const validateLogin = (req, res, next) => {
 const validateData = schema => {
   return (req, res, next) => {
     const validation = schema.validate(req.body)
-
     validation.error
       ? (console.log(`Autentication have errors: ${validation.error.message}`),
         res.status(401).send(validation.error.message))
