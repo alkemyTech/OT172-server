@@ -25,14 +25,14 @@ app.set('pkg', pkg)
 const corsOptions = {
   // origin: false,
   // "preflightContinue": true,
-  // origin: '*',
-  origin: ['*', 'http://localhost:3005', 'http://localhost:3005/',
-    'https://somosmas-ten.vercel.app/', 'https://somosmas-ten.vercel.app'],
+  origin: '*'
+  // origin: [ 'http://localhost:3005', 'http://localhost:3005/',
+  //   'https://somosmas-ten.vercel.app/', 'https://somosmas-ten.vercel.app'],
   // credentials: true,
   // SameSite:'None',
   // Secure:true,
-  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-  allowedHeaders: ['*', 'Content-Type', 'Authorization', 'x-access-token']
+  // methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+  // allowedHeaders: ['Content-Type', 'Authorization', 'x-access-token']
 }
 app.use(cors(corsOptions))
 
