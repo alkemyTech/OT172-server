@@ -26,7 +26,7 @@ const corsOptions = {
   // origin: false,
   // "preflightContinue": true,
   // origin: '*',
-  origin: ['http://localhost:3005', 'http://localhost:4000',
+  origin: ['http://localhost:3005', 'http://localhost:3005/',
     'https://somosmas-ten.vercel.app/', 'https://somosmas-ten.vercel.app'],
   // credentials: true,
   // SameSite:'None',
