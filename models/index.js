@@ -27,5 +27,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
-
+if (db) console.log('***Conectado a db***', db.sequelize.models, db.sequelize.config)
 module.exports = db
