@@ -3,7 +3,7 @@ const entriesService = require('../services/entriesService')
 
 const getAllNews = async (req, res, next) => {
   try {
-    const pagination=req.query
+    const pagination = req.query
     const newsList = await entriesService.getAllNews(pagination)
     res.status(200).json(newsList)
   } catch (err) {
@@ -26,10 +26,10 @@ const getNewById = async (req, res, next) => {
 // This Method is used for update entries regardless of their type
 const updateEntrie = async (req, res) => {
   const reqId = req.params.id
-  const {image, ...restNew}= req.body
+  const { image, ...restNew } = req.body
   try {
-    if(image!=null){
-      restNew.image= image;
+    if (image != null) {
+      restNew.image = image
     }
     const entry = entriesService.updateNew(reqId, restNew)
     res.status(200).send({ id: entry, message: 'updated' })
